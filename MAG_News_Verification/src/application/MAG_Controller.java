@@ -84,7 +84,7 @@ public class MAG_Controller implements Initializable {
     @FXML
     private void forward(ActionEvent event) {
         history = webview.getEngine().getHistory();
-        history.go(1);
+        history.go(0);
         ObservableList<WebHistory.Entry> entries = history.getEntries();
         txtFieldUrl.setText(entries.get(history.getCurrentIndex()).getUrl());
     }
