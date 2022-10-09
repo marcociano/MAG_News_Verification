@@ -10,8 +10,10 @@ import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Worker;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
@@ -34,6 +36,8 @@ public class MAG_Controller implements Initializable {
     private ProgressBar progress;
     @FXML
     private WebView webview;
+    @FXML
+    private Button searchPage;
     private WebEngine engine;
     private WebHistory history;
 
@@ -104,6 +108,15 @@ public class MAG_Controller implements Initializable {
     @FXML
     private void zoomOut(ActionEvent event) {
         webview.setZoom(webview.getZoom() - 0.10);
+    }
+    
+    @FXML
+    private void searchPage(ActionEvent event) {
+    	searchPage.setOnAction(new EventHandler<ActionEvent>() {
+    		public void handle(ActionEvent event) {
+    			loadUrl();
+    		}
+    	});
     }
     
 }

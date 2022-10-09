@@ -25,6 +25,8 @@ public class Main extends Application {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setTitle("MAG_News_Verification");
+        stage.setMinHeight(400);
+        stage.setMinWidth(600);
         stage.show();
     }
 
