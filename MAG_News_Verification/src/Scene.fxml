@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.web.WebView?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MAG_Controller">
+   <children>
+      <BorderPane prefHeight="1080.0" prefWidth="1920.0" AnchorPane.leftAnchor="0.0">
+         <top>
+            <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane prefHeight="117.0" prefWidth="1920.0">
+                     <children>
+                        <Button layoutX="32.0" layoutY="54.0" mnemonicParsing="false" onAction="#back" text="Back" />
+                        <Button layoutX="111.0" layoutY="54.0" mnemonicParsing="false" onAction="#reload" text="Reload" />
+                        <Button layoutX="191.0" layoutY="54.0" mnemonicParsing="false" onAction="#forward" text="Forward" />
+                        <Button layoutX="1645.0" layoutY="57.0" mnemonicParsing="false" onAction="#zoomIn" text="Zoom In" />
+                        <Button layoutX="1750.0" layoutY="57.0" mnemonicParsing="false" onAction="#zoomOut" text="Zoom Out" />
+                        <ProgressBar fx:id="progress" layoutX="25.0" layoutY="105.0" prefHeight="7.0" prefWidth="1865.0" progress="0.0" />
+                        <TextField fx:id="txtFieldUrl" layoutX="292.0" layoutY="60.0" onKeyPressed="#txtEnterKey" prefHeight="26.0" prefWidth="1316.0" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </StackPane>
+         </top>
+         <center>
+            <WebView fx:id="webview" prefHeight="960.0" prefWidth="1920.0" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
