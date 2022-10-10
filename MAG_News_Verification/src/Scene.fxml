@@ -11,22 +11,22 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.web.WebView?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="600.0" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MAG_Controller">
+<AnchorPane fx:id="anchor1" maxHeight="1080.0" maxWidth="1920.0" minHeight="400.0" minWidth="600.0" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MAG_Controller">
    <children>
-      <BorderPane prefHeight="1080.0" prefWidth="1920.0" AnchorPane.leftAnchor="0.0">
+      <BorderPane maxHeight="1080.0" maxWidth="1920.0" minHeight="1080.0" minWidth="1920.0" prefHeight="1080.0" prefWidth="1920.0">
          <top>
             <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <AnchorPane minHeight="0.0" minWidth="600.0" prefHeight="113.0" prefWidth="1920.0">
+                  <AnchorPane maxHeight="1080.0" maxWidth="1920.0" minHeight="0.0" minWidth="600.0" prefHeight="100.0" prefWidth="1920.0">
                      <children>
-                        <Button layoutX="22.0" layoutY="52.0" mnemonicParsing="false" onAction="#back" text="Back" translateY="-15.0" />
-                        <Button layoutX="80.0" layoutY="52.0" mnemonicParsing="false" onAction="#reload" text="Reload" translateY="-15.0" />
-                        <Button layoutX="149.0" layoutY="52.0" mnemonicParsing="false" onAction="#forward" text="Forward" translateY="-15.0" />
-                        <Button layoutX="1671.0" layoutY="54.0" mnemonicParsing="false" onAction="#zoomIn" text="Zoom In" translateY="-15.0" />
-                        <Button layoutX="1748.0" layoutY="54.0" mnemonicParsing="false" onAction="#zoomOut" text="Zoom Out" translateY="-15.0" />
+                        <Button layoutX="74.0" layoutY="54.0" mnemonicParsing="false" onAction="#back" text="Back" translateY="-15.0" />
+                        <Button layoutX="132.0" layoutY="54.0" mnemonicParsing="false" onAction="#reload" text="Reload" translateY="-15.0" />
+                        <Button layoutX="201.0" layoutY="54.0" mnemonicParsing="false" onAction="#forward" text="Forward" translateY="-15.0" AnchorPane.bottomAnchor="70.0" AnchorPane.topAnchor="54.0" />
+                        <Button layoutX="1656.0" layoutY="52.0" mnemonicParsing="false" onAction="#zoomIn" text="Zoom In" translateY="-15.0" />
+                        <Button layoutX="1730.0" layoutY="52.0" mnemonicParsing="false" onAction="#zoomOut" prefHeight="26.0" prefWidth="82.0" text="Zoom Out" translateY="-15.0" />
                         <ProgressBar fx:id="progress" layoutX="28.0" layoutY="113.0" prefHeight="11.0" prefWidth="1865.0" progress="0.0" />
-                        <TextField fx:id="txtFieldUrl" layoutX="291.0" layoutY="53.0" onKeyPressed="#txtEnterKey" prefHeight="26.0" prefWidth="1316.0" style="-fx-background-radius: 1000;" translateY="-15.0" />
-                        <Button fx:id="searchPage" defaultButton="true" layoutX="1607.0" layoutY="52.0" mnemonicParsing="false" onAction="#searchPage" prefHeight="28.0" prefWidth="31.0" style="-fx-background-radius: 1000;" textOverrun="CLIP" translateY="-15.0">
+                        <TextField fx:id="txtFieldUrl" layoutX="291.0" layoutY="53.0" onKeyPressed="#txtEnterKey" prefHeight="26.0" prefWidth="1316.0" style="-fx-background-radius: 1000;" translateY="-15.0" AnchorPane.leftAnchor="291.0" AnchorPane.rightAnchor="323.0" />
+                        <Button fx:id="searchPage" defaultButton="true" layoutX="1607.0" layoutY="52.0" mnemonicParsing="false" onAction="#searchPage" prefHeight="28.0" prefWidth="31.0" style="-fx-background-radius: 1000;" textOverrun="CLIP" translateX="-10.0" translateY="-15.0">
                            <graphic>
                               <ImageView fitHeight="13.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -35,8 +35,8 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Separator layoutX="5.0" layoutY="143.0" prefHeight="14.0" prefWidth="1920.0" />
-                        <Button fx:id="cronoHistory" layoutX="1837.0" layoutY="32.0" mnemonicParsing="false" onAction="#historyPages" prefHeight="40.0" prefWidth="34.0" style="-fx-background-radius: 1000;">
+                        <Separator layoutX="-4.0" layoutY="147.0" prefHeight="13.0" prefWidth="1925.0" />
+                        <Button fx:id="cronoHistory" layoutX="1837.0" layoutY="32.0" mnemonicParsing="false" onAction="#historyPages" prefHeight="40.0" prefWidth="34.0" style="-fx-background-radius: 1000;" translateX="-10.0">
                            <graphic>
                               <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -51,7 +51,7 @@
             </StackPane>
          </top>
          <center>
-            <WebView fx:id="webview" minHeight="-1.0" minWidth="-1.0" prefHeight="963.0" prefWidth="1920.0" BorderPane.alignment="CENTER" />
+            <WebView fx:id="webview" maxHeight="1080.0" maxWidth="1920.0" minHeight="400.0" minWidth="600.0" prefHeight="963.0" prefWidth="1920.0" BorderPane.alignment="CENTER" />
          </center>
       </BorderPane>
    </children>

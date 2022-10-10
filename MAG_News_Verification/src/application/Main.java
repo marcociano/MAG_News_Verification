@@ -21,13 +21,17 @@ public class Main extends Application {
     
     @Override
     public void start(Stage stage) throws IOException {
+
         Parent root = FXMLLoader.load(getClass().getResource("/Scene.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.setTitle("MAG_News_Verification");
+        stage.setTitle("MAG News Verification");
+        stage.setResizable(false);
         stage.setMinHeight(400);
         stage.setMinWidth(600);
         stage.show();
+        
+        
     }
 
     /**
