@@ -38,6 +38,8 @@ public class MAG_Controller implements Initializable {
     private WebView webview;
     @FXML
     private Button searchPage;
+    @FXML
+    private Button cronoHistory;
     private WebEngine engine;
     private WebHistory history;
 
@@ -51,7 +53,7 @@ public class MAG_Controller implements Initializable {
 
     private void loadUrl() {
     	engine = webview.getEngine();
-        engine.load("https://" + txtFieldUrl.getText());
+        engine.load("https://" + txtFieldUrl.getText()); //Caricamento della URL
 
         progress.progressProperty().bind(engine.getLoadWorker().progressProperty());
 
@@ -75,8 +77,8 @@ public class MAG_Controller implements Initializable {
     @FXML
     private void back(ActionEvent event) {
         history = webview.getEngine().getHistory();
-        history.go(-1);
         ObservableList<WebHistory.Entry> entries = history.getEntries();
+        history.go(-1);
         txtFieldUrl.setText(entries.get(history.getCurrentIndex()).getUrl());
     }
 
@@ -88,9 +90,17 @@ public class MAG_Controller implements Initializable {
     @FXML
     private void forward(ActionEvent event) {
         history = webview.getEngine().getHistory();
-        history.go(0);
         ObservableList<WebHistory.Entry> entries = history.getEntries();
-        txtFieldUrl.setText(entries.get(history.getCurrentIndex()).getUrl());
+        history.go(1);
+    }
+    
+    @FXML
+    private void historyPages(ActionEvent event) {
+    	 history = webview.getEngine().getHistory();
+         ObservableList<WebHistory.Entry> entries = history.getEntries();
+         for(WebHistory.Entry entry : entries) {
+         	System.out.println(entry);
+         }
     }
 
     @FXML
