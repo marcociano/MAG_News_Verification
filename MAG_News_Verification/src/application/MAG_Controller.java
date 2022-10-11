@@ -65,8 +65,7 @@ public class MAG_Controller implements Initializable {
                 ObservableList<WebHistory.Entry> entries = history.getEntries();
                 txtFieldUrl.setText(entries.get(history.getCurrentIndex()).getUrl());
                 
-                Stage stage = (Stage) txtFieldUrl.getScene().getWindow();
-                stage.setTitle(entries.get(history.getCurrentIndex()).getTitle());
+  
 
             } else if (newValue == Worker.State.FAILED) {
                 System.out.println("Caricamento fallito");
