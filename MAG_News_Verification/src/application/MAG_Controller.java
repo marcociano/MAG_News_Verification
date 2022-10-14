@@ -42,13 +42,15 @@ public class MAG_Controller implements Initializable {
     private Button cronoHistory;
     private WebEngine engine;
     private WebHistory history;
+    private String homepage= "https://google.it";
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-    	
+    	engine=webview.getEngine();
+    	engine.load("https://google.it");
     }
 
     private void loadUrl() {
@@ -87,10 +89,9 @@ public class MAG_Controller implements Initializable {
     }
 
     @FXML
-    private void forward(ActionEvent event) {
-        history = webview.getEngine().getHistory();
-        ObservableList<WebHistory.Entry> entries = history.getEntries();
-        history.go(1);
+    private void homepage(ActionEvent event) {
+        engine=webview.getEngine();
+        engine.load(homepage);
     }
     
     @FXML
