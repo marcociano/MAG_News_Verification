@@ -5,6 +5,7 @@
  */
 package application;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
@@ -12,7 +13,10 @@ import javafx.concurrent.Worker;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
@@ -50,7 +54,7 @@ public class MAG_Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
     	engine=webview.getEngine();
-    	engine.load("https://google.it");
+    	engine.load(homepage);
     }
 
     private void loadUrl() {
@@ -129,4 +133,17 @@ public class MAG_Controller implements Initializable {
     	});
     }
     
+    @FXML
+    private void scrapPage(ActionEvent event) throws IOException {
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/ScrapedView.fxml"));
+    	Parent root= loader.load();
+    	
+    	Scraping_Controller scraping_controller=loader.getController();
+    	scraping_controller.showInformation(txtFieldUrl.getText());
+    	Stage stage= new Stage();
+    	stage.setScene(new Scene(root));
+    	stage.setTitle("Scrape Page");
+    	stage.setResizable(false);
+    	stage.show();
+    }
 }
