@@ -32,7 +32,7 @@
                      <bottom>
                         <HBox prefHeight="31.0" prefWidth="512.0" BorderPane.alignment="CENTER">
                            <children>
-                              <TextField fx:id="queryTextField" prefHeight="31.0" prefWidth="453.0" promptText="Query Selector" />
+                              <TextField fx:id="queryTextField" prefHeight="31.0" prefWidth="453.0" promptText="Immetti un selettore" />
                            </children>
                         </HBox>
                      </bottom>
