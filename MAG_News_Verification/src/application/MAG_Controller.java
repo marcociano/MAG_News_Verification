@@ -27,11 +27,6 @@ import javafx.scene.web.WebHistory;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 
-/**
- * FXML Controller class
- *
- * @author KENSOFT
- */
 public class MAG_Controller implements Initializable {
 
     @FXML
@@ -46,7 +41,7 @@ public class MAG_Controller implements Initializable {
     private Button cronoHistory;
     private WebEngine engine;
     private WebHistory history;
-    private String homepage= "https://google.it";
+    private String homepage= "https://github.com/marcociano/MAG_News_Verification";
 
     /**
      * Initializes the controller class.
