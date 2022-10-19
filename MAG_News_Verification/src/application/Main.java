@@ -12,7 +12,7 @@ public class Main extends Application {
     
     @Override
     public void start(Stage stage) throws IOException {
-
+    	
         Parent root = FXMLLoader.load(getClass().getResource("/WebView.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -22,7 +22,6 @@ public class Main extends Application {
         stage.setMinHeight(400);
         stage.setMinWidth(600);
         stage.show();
-        
         
     }
 

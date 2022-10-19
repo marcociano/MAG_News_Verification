@@ -45,6 +45,7 @@ public class MAG_Controller implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
     	engine=webview.getEngine();
     	engine.load(homepage);
+    	txtFieldUrl.setText(homepage);
     }
 
     private void loadUrl() {
@@ -80,6 +81,13 @@ public class MAG_Controller implements Initializable {
     @FXML
     private void reload(ActionEvent event) {
         engine.reload();
+    }
+    @FXML
+    private void forward(ActionEvent event) {
+    	history= webview.getEngine().getHistory();
+    	ObservableList<WebHistory.Entry> entries= history.getEntries();
+    	history.go(1);
+    	txtFieldUrl.setText(entries.get(history.getCurrentIndex()).getUrl());
     }
 
     @FXML
