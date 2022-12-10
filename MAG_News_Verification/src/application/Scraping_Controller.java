@@ -1,9 +1,11 @@
 package application;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
@@ -19,6 +21,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
+
 
 public class Scraping_Controller implements Initializable {
 
@@ -83,9 +86,16 @@ public class Scraping_Controller implements Initializable {
  
     @FXML
     void handlefetchPage(ActionEvent event) {
+    	BufferedWriter writer= null;
     	try {
-            doc = Jsoup.connect(urlTextField.getText()).get();
+            doc = Jsoup.connect(urlTextField.getText())
+            		.maxBodySize(0)
+            		.timeout(600000)
+            		.get();
             docTextArea.setText(doc.body().html());
+            Elements neededTags= doc.select("h1, h2, h3, h4, h5, h6");
+            writer= new BufferedWriter(new FileWriter("./docJsoup.html"));
+            writer.write(doc.html().toString());
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -38,6 +38,7 @@ public class MAG_Controller implements Initializable {
     private WebHistory history;
     private String homepage= "https://github.com/marcociano/MAG_News_Verification";
 
+
     /**
      * Initializes the controller class.
      */
@@ -135,7 +136,6 @@ public class MAG_Controller implements Initializable {
     private void scrapPage(ActionEvent event) throws IOException {
     	FXMLLoader loader = new FXMLLoader(getClass().getResource("/ScrapedView.fxml"));
     	Parent root= loader.load();
-    	
     	Scraping_Controller scraping_controller=loader.getController();
     	scraping_controller.showInformation(txtFieldUrl.getText());
     	Stage stage= new Stage();
@@ -144,4 +144,5 @@ public class MAG_Controller implements Initializable {
     	stage.setResizable(false);
     	stage.show();
     }
+    
 }
