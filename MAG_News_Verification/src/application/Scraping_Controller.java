@@ -89,16 +89,21 @@ public class Scraping_Controller implements Initializable {
  
     @FXML
     void handlefetchPage(ActionEvent event) {
-    	BufferedWriter writer= null;
+    	
     	try {
             doc = Jsoup.connect(urlTextField.getText())
             		.maxBodySize(0)
             		.timeout(600000)
             		.get();
             docTextArea.setText(doc.body().html());
-            Elements neededTag= doc.select("div");
-            writer= new BufferedWriter(new FileWriter("./docJsoup.html"));
-            writer.write(neededTag.toString());
+            FileWriter writer=new FileWriter("./docJsoup.html");
+            Elements neededTag= doc.getElementsByClass("news__title");
+           for(Element e : neededTag) {
+        	  writer.write(e.text());
+              
+        	   
+           }
+            writer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
