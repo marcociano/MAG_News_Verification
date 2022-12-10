@@ -1,18 +1,13 @@
 package application;
 
-import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-
 import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -97,11 +92,9 @@ public class Scraping_Controller implements Initializable {
             		.get();
             docTextArea.setText(doc.body().html());
             FileWriter writer=new FileWriter("./docJsoup.html");
-            Elements neededTag= doc.getElementsByClass("news__title");
+            Elements neededTag= doc.select("h1, h2, h3, p");
            for(Element e : neededTag) {
         	  writer.write(e.text());
-              
-        	   
            }
             writer.close();
         } catch (IOException e) {
