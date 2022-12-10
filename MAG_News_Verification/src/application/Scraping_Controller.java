@@ -6,8 +6,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import javafx.animation.PauseTransition;
@@ -93,9 +96,10 @@ public class Scraping_Controller implements Initializable {
             		.timeout(600000)
             		.get();
             docTextArea.setText(doc.body().html());
-            Elements neededTags= doc.select("h1, h2, h3, h4, h5, h6");
+            Elements neededTag= doc.select("div");
             writer= new BufferedWriter(new FileWriter("./docJsoup.html"));
-            writer.write(doc.html().toString());
+            //writer.write(doc.html().toString());
+            writer.write(neededTag.toString());
         } catch (IOException e) {
             e.printStackTrace();
         }
