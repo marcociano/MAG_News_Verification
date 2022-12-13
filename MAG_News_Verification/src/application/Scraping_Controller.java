@@ -92,7 +92,7 @@ public class Scraping_Controller implements Initializable {
             		.get();
             docTextArea.setText(doc.body().html());
             FileWriter writer=new FileWriter("./docJsoup.html");
-            Elements neededTag= doc.select("h1, h2, h3, p");
+            Elements neededTag= doc.select("article");
            for(Element e : neededTag) {
         	  writer.write(e.text());
            }
