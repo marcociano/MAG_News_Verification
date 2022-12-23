@@ -1,6 +1,7 @@
 # MAG News Verification
 <h3>As a thesis project</h3>
 <img src="https://github.com/marcociano/MAG_News_Verification/blob/master/MAG_News_Verification/src/images/MAG_News_Verification_logo.png" width=300/>
+Logo created by AI of Midjourney on Discord: https://bit.ly/3BXjuy2
 <h3> Description </h3>
 <p> MAG News Verification it's a browser web that helps the users that helps users recognize real news from fake news from most news media websites, through a percentage of truthfulness, shown in various representations to the right of the browser view.
 in addition, the web browser offers the possibility of scraping the web page the user is viewing and filtering the selectors that make it up. </p>
