@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
@@ -21,7 +22,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.web.WebView?>
 
-<AnchorPane maxHeight="1080.0" maxWidth="1920.0" minHeight="400.0" minWidth="600.0" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MAG_Controller">
+<AnchorPane maxHeight="1080.0" maxWidth="1920.0" minHeight="400.0" minWidth="600.0" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MAG_Controller">
    <children>
       <BorderPane layoutY="-2.0" maxHeight="1082.0" maxWidth="1920.0" minHeight="1012.0" minWidth="1224.0" prefHeight="1082.0" prefWidth="1224.0">
          <top>
@@ -117,7 +118,7 @@
       </BorderPane>
       <AnchorPane layoutX="1225.0" layoutY="-3.0" prefHeight="1085.0" prefWidth="698.0" style="-fx-background-color: #2d7c86#2d7c86;">
          <children>
-            <VBox layoutX="13.0" layoutY="-4.0" prefHeight="1080.0" prefWidth="685.0">
+            <VBox layoutX="14.0" layoutY="-9.0" prefHeight="1080.0" prefWidth="685.0">
                <children>
                   <StackPane prefHeight="117.0" prefWidth="677.0">
                      <children>
@@ -181,6 +182,11 @@
                       <NumberAxis label="Amount" prefHeight="367.0" prefWidth="43.0" side="LEFT" style="-fx-background-color: #ffff;" />
                     </yAxis>
                   </BarChart>
+                  <Button fx:id="viewReportButton" mnemonicParsing="false" onAction="#viewReport" style="-fx-background-color: #dbac00; -fx-background-radius: 100;" text="Visualizza report" textAlignment="CENTER">
+                     <VBox.margin>
+                        <Insets left="300.0" top="50.0" />
+                     </VBox.margin>
+                  </Button>
                </children>
             </VBox>
          </children>

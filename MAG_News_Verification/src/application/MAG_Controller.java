@@ -144,5 +144,15 @@ public class MAG_Controller implements Initializable {
     	stage.setResizable(false);
     	stage.show();
     }
+    @FXML
+    private void viewReport(ActionEvent event) throws IOException{
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/ReportView.fxml"));
+    	Parent root= loader.load();
+    	Stage stage= new Stage();
+    	stage.setScene(new Scene(root));
+    	stage.setTitle("Report Page");
+    	stage.setResizable(false);
+    	stage.show();
+    }
     
 }

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.TextFlow?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Accordion layoutX="75.0" layoutY="80.0" />
+      <Label layoutX="214.0" layoutY="50.0" text="La pagina analizzata contiene:">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Button layoutX="376.0" layoutY="338.0" mnemonicParsing="false" text="Salva le informazioni" textFill="#2d7c86" />
+      <Button layoutX="51.0" layoutY="338.0" mnemonicParsing="false" text="Torna alla pagina principale" textFill="#2d7c86" />
+      <Accordion layoutX="51.0" layoutY="115.0" />
+      <TextFlow layoutX="175.0" layoutY="90.0" prefHeight="50.0" prefWidth="264.0" style="-fx-background-color: #2D7C86;">
+         <children>
+            <Label alignment="CENTER" text="56% di fake news" textFill="WHITE">
+               <font>
+                  <Font size="34.0" />
+               </font>
+            </Label>
+         </children>
+      </TextFlow>
+      <Label layoutX="222.0" layoutY="23.0" text="Report della pagina">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Circle fill="#2d7c86" layoutX="307.0" layoutY="236.0" radius="74.0" stroke="BLACK" strokeType="INSIDE" />
+      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="107.0" layoutY="270.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="\@/images/frecciasinistra" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="376.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="314.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="314.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="314.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="314.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="314.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="314.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="314.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+   <effect>
+      <Blend />
+   </effect>
+</Pane>
