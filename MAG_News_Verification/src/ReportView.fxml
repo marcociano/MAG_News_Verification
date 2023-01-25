@@ -7,6 +7,7 @@
 <?import javafx.scene.effect.Blend?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
@@ -14,45 +15,57 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: e9e9e9;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Circle fx:id="cicle" fill="#2d7c86" layoutX="299.0" layoutY="166.0" radius="86.0" stroke="WHITE" strokeType="INSIDE" />
+      <AnchorPane layoutX="157.0" prefHeight="400.0" prefWidth="297.0" style="-fx-background-color: #2d7c86;">
+         <children>
+            <Circle fx:id="cicle" fill="#dbac00" layoutX="144.0" layoutY="189.0" radius="105.0" stroke="WHITE" strokeType="INSIDE" />
+            <ProgressBar fx:id="progressBarPercentage" layoutX="44.0" layoutY="303.0" prefWidth="200.0" progress="0.0" />
+            <ImageView fitHeight="188.0" fitWidth="188.0" layoutX="50.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/news.png" />
+               </image>
+            </ImageView>
+            <TextFlow fx:id="accuracy" layoutX="17.0" layoutY="336.0" prefHeight="50.0" prefWidth="264.0" style="-fx-background-color: #2d7c86; -fx-background-radius: 100;">
+               <children>
+                  <Label fx:id="label" alignment="CENTER" text="56% di fake news" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="34.0" />
+                     </font>
+                  </Label>
+               </children></TextFlow>
+         </children>
+      </AnchorPane>
       <Accordion layoutX="75.0" layoutY="80.0" />
-      <Label fx:id="label2" layoutX="214.0" layoutY="50.0" text="La pagina analizzata contiene:">
+      <Label fx:id="label2" layoutX="214.0" layoutY="50.0" text="La pagina analizzata contiene:" textFill="WHITE">
          <font>
-            <Font size="13.0" />
+            <Font size="15.0" />
          </font>
       </Label>
-      <Button fx:id="saveInformationButton" layoutX="376.0" layoutY="338.0" mnemonicParsing="false" style="-fx-background-color: #dbac00; -fx-background-radius: 100;" text="Salva le informazioni" />
-      <Button fx:id="backButton" layoutX="51.0" layoutY="338.0" mnemonicParsing="false" style="-fx-background-color: #dbac00; -fx-background-radius: 100;" text="Torna alla pagina principale" />
-      <Accordion layoutX="51.0" layoutY="115.0" />
-      <TextFlow fx:id="accuracy" layoutX="168.0" layoutY="141.0" prefHeight="50.0" prefWidth="264.0" style="-fx-background-color: #153596; -fx-background-radius: 100;">
-         <children>
-            <Label fx:id="label" alignment="CENTER" text="56% di fake news" textFill="WHITE">
-               <font>
-                  <Font size="34.0" />
-               </font>
-            </Label>
-         </children>
-      </TextFlow>
-      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="107.0" layoutY="286.0" pickOnBounds="true" smooth="false">
-         <image>
-            <Image url="@/images/frecciaSinistra.png" />
-         </image>
-      </ImageView>
-      <Label fx:id="label1" layoutX="213.0" layoutY="14.0" text="Report della pagina">
+      <Button fx:id="saveInformationButton" layoutX="460.0" layoutY="353.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="137.0" style="-fx-background-color: #dbac00; -fx-background-radius: 100;" text="Salva informazioni">
          <font>
-            <Font size="20.0" />
+            <Font size="14.0" />
+         </font></Button>
+      <Button fx:id="segnalaButton" layoutX="19.0" layoutY="353.0" mnemonicParsing="false" style="-fx-background-color: #dbac00; -fx-background-radius: 100;" text="Segnala la pagina">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+      <Accordion layoutX="51.0" layoutY="115.0" />
+      <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="44.0" layoutY="274.0" pickOnBounds="true" smooth="false">
+         <image>
+            <Image url="@images/segnala.png" />
+         </image></ImageView>
+      <Label fx:id="label1" layoutX="213.0" layoutY="14.0" text="Report della pagina" textFill="WHITE">
+         <font>
+            <Font size="22.0" />
          </font>
       </Label>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="7.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
          <image>
-         <Image url="@/images/MAG_News_Verification_logo.png" /> 
+         <Image url="@images/MAG_News_Verification_logo.png" /> 
          </image></ImageView>
-      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="414.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="491.0" layoutY="274.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@/images/scarica.png" />
-         </image>
-      </ImageView>
-      <ProgressBar fx:id="progressBarPercentage" layoutX="199.0" layoutY="260.0" prefWidth="200.0" progress="0.0" />
+            <Image url="@images/scarica.png" />
+         </image></ImageView>
    </children>
    <effect>
       <Blend />
