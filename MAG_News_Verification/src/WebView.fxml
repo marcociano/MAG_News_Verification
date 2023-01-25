@@ -202,12 +202,23 @@
                         <content>
                           <AnchorPane fx:id="highlightTab" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: d3d3d3;">
                                  <children>
-                                    <Label layoutX="54.0" layoutY="100.0" text="Green means not fake news " />
-                                    <Label layoutX="249.0" layoutY="100.0" text="Orange means moderate fake news" />
-                                    <Label layoutX="512.0" layoutY="100.0" text="Heavy fake news" />
-                                    <Circle fill="LIME" layoutX="127.0" layoutY="60.0" radius="35.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.leftAnchor="94.0" />
-                                    <Circle fill="#ff7f00" layoutX="343.0" layoutY="60.0" radius="35.0" stroke="BLACK" strokeType="INSIDE" />
-                                    <Circle fill="RED" layoutX="566.0" layoutY="60.0" radius="35.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.rightAnchor="94.0" />
+                                    <AnchorPane fx:id="anchorPaneHighlightOptions" layoutX="104.0" layoutY="30.0" prefHeight="91.0" prefWidth="567.0" style="-fx-background-color: bdbebd; -fx-background-radius: 100;" AnchorPane.bottomAnchor="9.0" AnchorPane.topAnchor="35.0">
+                                       <children>
+                                          <Circle fill="#ff7f00" layoutX="284.0" layoutY="42.0" radius="23.0" stroke="BLACK" strokeType="INSIDE" />
+                                          <Circle fill="RED" layoutX="88.0" layoutY="42.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.rightAnchor="454.0" />
+                                          <Label layoutX="190.0" layoutY="72.0" text="Orange means moderate fake news" />
+                                          <Label layoutX="20.0" layoutY="51.0" prefHeight="60.0" prefWidth="156.0" text="Red means heavy fake news" />
+                                          <Circle fill="LIME" layoutX="475.0" layoutY="42.0" radius="24.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.leftAnchor="451.0" />
+                                          <Label layoutX="400.0" layoutY="72.0" text="Green means not fake news " />
+                                       </children>
+                                    </AnchorPane>
+                                    <Text fx:id="textDescriptionHighlightOptions" layoutX="23.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The MAG platform works like a traffic light" wrappingWidth="227.958984375" />
+                                    <Text layoutX="253.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                                    <ImageView fx:id="imageTrafficLight" fitHeight="66.0" fitWidth="66.0" layoutX="23.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@images/trafficLight.png" />
+                                       </image>
+                                    </ImageView>
                                  </children></AnchorPane>
                         </content>
                       </Tab>
@@ -215,10 +226,16 @@
                           <content>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: bdbebd;">
                                  <children>
-                                    <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="29.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="29.0" AnchorPane.topAnchor="23.0" />
-                                    <Text id="description" layoutX="151.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MAG News Verification is a web browser that helps users recognize real news from fake news from most news websites, through a percentage of truthfulness, shown in various representations to the right of the browser view. In addition, the web browser offers the ability to scrap the web page the user is viewing and filter the selectors that make it up." wrappingWidth="498.447265625" />
-                                    <Text id="descriptionContactUs" layoutX="152.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="If you have any questions, please contact us." wrappingWidth="248.662109375" />
-                                    <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="400.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true" />
+                                    <ImageView fx:id="logoMAG" fitHeight="133.0" fitWidth="130.0" layoutX="14.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="8.0">
+                                       <image>
+                                          <Image url="@images/MAG_News_Verification_logo.png" />
+                                       </image></ImageView>
+                                    <Text id="description" fx:id="textDescriptionMAGInOtherInformation" layoutX="151.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MAG News Verification is a web browser that helps users recognize real news from fake news from most news websites, through a percentage of truthfulness, shown in various representations to the right of the browser view. In addition, the web browser offers the ability to scrap the web page the user is viewing and filter the selectors that make it up." wrappingWidth="498.447265625" />
+                                    <Text id="descriptionContactUs" fx:id="textContactUsInOtherInformation" layoutX="152.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="If you have any questions, please contact us." wrappingWidth="248.662109375" />
+                                    <ImageView fx:id="messageIcon" fitHeight="55.0" fitWidth="55.0" layoutX="393.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@images/messaggio.png" />
+                                       </image></ImageView>
                                  </children></AnchorPane>
                           </content>
                         </Tab>
