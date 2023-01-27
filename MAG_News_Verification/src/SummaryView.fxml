@@ -26,7 +26,7 @@
             </ImageView>
             <TextFlow fx:id="accuracy" layoutX="17.0" layoutY="336.0" prefHeight="50.0" prefWidth="264.0" style="-fx-background-color: #2d7c86; -fx-background-radius: 100;">
                <children>
-                  <Label fx:id="label" alignment="CENTER" text="56% di fake news" textAlignment="CENTER" textFill="WHITE">
+                  <Label fx:id="label" alignment="CENTER" text="56% of fake news" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font size="34.0" />
                      </font>
@@ -35,16 +35,16 @@
          </children>
       </AnchorPane>
       <Accordion layoutX="75.0" layoutY="80.0" />
-      <Label fx:id="label2" layoutX="214.0" layoutY="50.0" text="La pagina analizzata contiene:" textFill="WHITE">
+      <Label fx:id="label2" layoutX="214.0" layoutY="50.0" text="The analyzed page contains:" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Button fx:id="saveInformationButton" layoutX="460.0" layoutY="353.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="137.0" style="-fx-background-color: #dbac00; -fx-background-radius: 100;" text="Salva informazioni">
+      <Button fx:id="saveInformationButton" layoutX="463.0" layoutY="353.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="131.0" style="-fx-background-color: #dbac00; -fx-background-radius: 100;" text="Save information">
          <font>
             <Font size="14.0" />
          </font></Button>
-      <Button fx:id="segnalaButton" layoutX="19.0" layoutY="353.0" mnemonicParsing="false" style="-fx-background-color: #dbac00; -fx-background-radius: 100;" text="Segnala la pagina">
+      <Button fx:id="segnalaButton" layoutX="34.0" layoutY="353.0" mnemonicParsing="false" style="-fx-background-color: #dbac00; -fx-background-radius: 100;" text="Report page">
          <font>
             <Font size="14.0" />
          </font></Button>
@@ -53,7 +53,7 @@
          <image>
             <Image url="@images/segnala.png" />
          </image></ImageView>
-      <Label fx:id="label1" layoutX="213.0" layoutY="14.0" text="Report della pagina" textFill="WHITE">
+      <Label fx:id="label1" layoutX="213.0" layoutY="14.0" text="Summary of the page" textFill="WHITE">
          <font>
             <Font size="22.0" />
          </font>
