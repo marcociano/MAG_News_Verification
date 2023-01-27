@@ -186,7 +186,7 @@
                       <NumberAxis label="Amount" prefHeight="367.0" prefWidth="43.0" side="LEFT" style="-fx-background-color: #ffff;" />
                     </yAxis>
                   </BarChart>
-                  <Button fx:id="viewReportButton" mnemonicParsing="false" onAction="#viewReport" style="-fx-background-color: #dbac00; -fx-background-radius: 100;" text="Visualizza report" textAlignment="CENTER">
+                  <Button fx:id="viewSummaryutton" mnemonicParsing="false" onAction="#viewSummary" style="-fx-background-color: #dbac00; -fx-background-radius: 100;" text="View summary" textAlignment="CENTER">
                      <VBox.margin>
                         <Insets bottom="20.0" left="300.0" top="20.0" />
                      </VBox.margin>
