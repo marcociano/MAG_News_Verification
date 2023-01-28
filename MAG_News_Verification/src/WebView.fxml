@@ -198,7 +198,7 @@
                           <AnchorPane fx:id="statisticTab" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: e9e9e9;" />
                         </content>
                       </Tab>
-                      <Tab text="Highlight Options">
+                      <Tab text="Highlight options">
                         <content>
                           <AnchorPane fx:id="highlightTab" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: d3d3d3;">
                                  <children>
@@ -237,6 +237,20 @@
                                           <Image url="@images/messaggio.png" />
                                        </image></ImageView>
                                  </children></AnchorPane>
+                          </content>
+                        </Tab>
+                        <Tab text="Terms of use">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: a9a9a9;">
+                                 <children>
+                                    <Text layoutX="30.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The MAG platform is proposed as an experimental project in the field of automatic fake news detection. You are not allowed to use our browser for legitimate, illegal or unauthorized purposes, including, but not limited to, in violation of any intellectual property or privacy laws. The code is available for future development only at the following link https://github.com/marcociano/MAG_News_Verification.git" wrappingWidth="506.958984375" />
+                                    <ImageView fitHeight="80.0" fitWidth="120.0" layoutX="566.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@images/privacyPolicy.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </AnchorPane>
                           </content>
                         </Tab>
                     </tabs>
