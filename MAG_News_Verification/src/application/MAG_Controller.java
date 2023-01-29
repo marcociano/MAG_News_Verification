@@ -143,10 +143,11 @@ public class MAG_Controller implements Initializable {
     	stage.setResizable(false);
     	stage.show();
     }
+    
     @FXML
     private void viewSummary(ActionEvent event) throws IOException{
-    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/SummaryView.fxml"));
-        engine.setUserStyleSheetLocation(getClass().getResource("/stylesheet/highlighted_text_notFakeNews.css").toString());  
+        engine.setUserStyleSheetLocation(getClass().getResource("/stylesheet/highlighted_text_notFakeNews.css").toString());
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/SummaryView.fxml"));  
     	Parent root= loader.load();
     	Stage stage= new Stage();
     	stage.setScene(new Scene(root));
