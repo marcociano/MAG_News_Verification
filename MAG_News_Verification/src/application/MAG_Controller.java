@@ -146,7 +146,7 @@ public class MAG_Controller implements Initializable {
     @FXML
     private void viewSummary(ActionEvent event) throws IOException{
     	FXMLLoader loader = new FXMLLoader(getClass().getResource("/SummaryView.fxml"));
-        engine.setUserStyleSheetLocation(getClass().getResource("/stylesheet/highlighted_text.css").toString());  
+        engine.setUserStyleSheetLocation(getClass().getResource("/stylesheet/highlighted_text_FakeNews.css").toString());  
     	Parent root= loader.load();
     	Stage stage= new Stage();
     	stage.setScene(new Scene(root));
