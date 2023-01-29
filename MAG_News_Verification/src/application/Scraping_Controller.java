@@ -84,7 +84,6 @@ public class Scraping_Controller implements Initializable {
  
     @FXML
     void handlefetchPage(ActionEvent event) {
-    	
     	try {
             doc = Jsoup.connect(urlTextField.getText())
             		.maxBodySize(0)
@@ -92,7 +91,8 @@ public class Scraping_Controller implements Initializable {
             		.get();
             docTextArea.setText(doc.body().html());
             FileWriter writer=new FileWriter("./docJsoup.html");
-            Elements neededTag= doc.select("article");
+            Elements neededTag= doc.select("article");          
+  
            for(Element e : neededTag) {
         	  writer.write(e.text());
            }
@@ -101,4 +101,5 @@ public class Scraping_Controller implements Initializable {
             e.printStackTrace();
         }
     }
+    
 }

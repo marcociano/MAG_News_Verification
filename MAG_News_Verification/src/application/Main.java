@@ -18,8 +18,7 @@ public class Main extends Application {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setTitle("MAG News Verification");
-        java.net.CookieHandler.setDefault(null); //Questa linea di codice risolve il bug di crash all'avvio dell'applicazione
-        stage.setResizable(false);
+        java.net.CookieHandler.setDefault(null); //This line of code resolves application crashing
         stage.setMinHeight(400);
         stage.setMinWidth(600);
         stage.show();

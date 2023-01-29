@@ -62,7 +62,6 @@ public class MAG_Controller implements Initializable {
                 history = webview.getEngine().getHistory();
                 ObservableList<WebHistory.Entry> entries = history.getEntries();
                 txtFieldUrl.setText(entries.get(history.getCurrentIndex()).getUrl());
-                
   
 
             } else if (newValue == Worker.State.FAILED) {
@@ -147,6 +146,7 @@ public class MAG_Controller implements Initializable {
     @FXML
     private void viewSummary(ActionEvent event) throws IOException{
     	FXMLLoader loader = new FXMLLoader(getClass().getResource("/SummaryView.fxml"));
+        engine.setUserStyleSheetLocation(getClass().getResource("/stylesheet/highlighted_text.css").toString());  
     	Parent root= loader.load();
     	Stage stage= new Stage();
     	stage.setScene(new Scene(root));
