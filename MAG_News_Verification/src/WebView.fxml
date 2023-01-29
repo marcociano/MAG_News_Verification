@@ -13,6 +13,7 @@
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -213,9 +214,12 @@
                                                       <Font size="13.0" />
                                                    </font>
                                                 </Text>
-                                                <RadioButton layoutX="14.0" layoutY="24.0" mnemonicParsing="false" text="Minimum" />
-                                                <RadioButton layoutX="14.0" layoutY="53.0" mnemonicParsing="false" text="Mean" />
-                                                <RadioButton layoutX="13.0" layoutY="83.0" mnemonicParsing="false" text="Maximum" />
+                                                <RadioButton layoutX="14.0" layoutY="24.0" mnemonicParsing="false" text="Minimum">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="stats" />
+                                                   </toggleGroup></RadioButton>
+                                                <RadioButton layoutX="14.0" layoutY="53.0" mnemonicParsing="false" text="Mean" toggleGroup="$stats" />
+                                                <RadioButton layoutX="13.0" layoutY="83.0" mnemonicParsing="false" text="Maximum" toggleGroup="$stats" />
                                                 <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="193.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
                                                       <Image url="@images/tick.png" />
