@@ -1,6 +1,13 @@
 package application;
 
+import java.io.FileOutputStream;
+import java.net.URL;
 import java.util.Optional;
+import java.util.ResourceBundle;
+
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceDialog;
@@ -26,5 +33,20 @@ public class Summary_Controller {
 				System.out.println("Your choice: "+result.get());
 			}
 		}
+	
+	public void downloadSummary() {
+		try{
+			
+			Document document = new Document();
+			PdfWriter.getInstance(document,new FileOutputStream("C:/Users/angel/git/MAG_News_Verification/MAG_News_Verification/reportSummary.pdf"));
+			document.open();
+			document.add(new Paragraph("Summary report pdf"));
+			document.close();
+			
+		}catch(Exception e){
+			System.out.println(e);
+		}
+		System.out.println("itext PDF program executed");
+	}
 
 }

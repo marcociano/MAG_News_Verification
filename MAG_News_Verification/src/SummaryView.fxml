@@ -40,7 +40,7 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <Button fx:id="saveInformationButton" layoutX="463.0" layoutY="353.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="131.0" style="-fx-background-color: #dbac00; -fx-background-radius: 100;" text="Save information">
+      <Button fx:id="saveInformationButton" layoutX="463.0" layoutY="353.0" mnemonicParsing="false" onAction="#downloadSummary" prefHeight="30.0" prefWidth="131.0" style="-fx-background-color: #dbac00; -fx-background-radius: 100;" text="Save information">
          <font>
             <Font size="14.0" />
          </font></Button>
