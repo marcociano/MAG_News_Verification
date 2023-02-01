@@ -1,14 +1,9 @@
 package application;
 
-import java.awt.Color;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.net.URL;
-import java.nio.file.Paths;
 import java.util.Optional;
-import java.util.ResourceBundle;
-
 import com.itextpdf.awt.geom.Rectangle;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
@@ -21,22 +16,12 @@ import com.itextpdf.text.PageSize;
 import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
-import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
-import com.itextpdf.text.pdf.qrcode.BitMatrix;
 import com.itextpdf.text.Phrase;
-
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Cell;
 import javafx.scene.control.ChoiceDialog;
 import javafx.scene.control.ProgressBar;
-import javafx.scene.control.TableCell;
-
-import javafx.scene.layout.BackgroundImage;
-import javafx.scene.layout.Border;
-import javafx.scene.text.TextAlignment;
 
 
 public class Summary_Controller {

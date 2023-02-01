@@ -1,6 +1,10 @@
 package application;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
@@ -132,7 +136,7 @@ public class MAG_Controller implements Initializable {
     }
     
     @FXML
-    private void scrapPage(ActionEvent event) throws IOException {
+    private void scrapePage(ActionEvent event) throws IOException {
     	FXMLLoader loader = new FXMLLoader(getClass().getResource("/ScrapedView.fxml"));
     	Parent root= loader.load();
     	Scraping_Controller scraping_controller=loader.getController();
@@ -145,8 +149,37 @@ public class MAG_Controller implements Initializable {
     }
     
     @FXML
+    private void detectionFakeNews(ActionEvent event) throws IOException{
+    	try {
+    		URL url = new URL("http://127.0.0.1:5000/detecting");
+    		HttpURLConnection conn =(HttpURLConnection) url.openConnection();
+    		conn.setRequestMethod("GET");
+    		conn.setRequestProperty("Accept", "Flask server");
+    		
+    		if(conn.getResponseCode()!= 200) {
+    			throw new RuntimeException("Failed : HTTP error code : " + conn.getResponseCode());
+    		}
+    		
+    		BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+    		
+    		String output;
+    		System.out.println("Output from Server: \n");
+    		while((output = br.readLine())!= null) {
+    			System.out.println(output);
+    		}
+    		
+    		conn.disconnect();
+    		
+    	}catch(MalformedURLException e) {
+    		e.printStackTrace();
+    	}
+    		
+    	//engine.setUserStyleSheetLocation(getClass().getResource("/stylesheet/highlighted_text_notFakeNews.css").toString());
+    	
+    }
+      
+    @FXML
     private void viewSummary(ActionEvent event) throws IOException{
-        engine.setUserStyleSheetLocation(getClass().getResource("/stylesheet/highlighted_text_notFakeNews.css").toString());
     	FXMLLoader loader = new FXMLLoader(getClass().getResource("/SummaryView.fxml"));  
     	Parent root= loader.load();
     	Stage stage= new Stage();
@@ -155,5 +188,7 @@ public class MAG_Controller implements Initializable {
     	stage.setResizable(false);
     	stage.show();
     }
+    
+  
     
 }

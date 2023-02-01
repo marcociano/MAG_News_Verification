@@ -129,7 +129,8 @@
                <children>
                   <StackPane prefHeight="117.0" prefWidth="677.0">
                      <children>
-                        <Button fx:id="scrapingButton" mnemonicParsing="false" onAction="#scrapPage" style="-fx-background-radius: 100; -fx-background-color: #dbac00#dbac00 #dbac00#dbac00 #dbac00#dbac00 #dbac00#dbac00;" text="Scraping" textAlignment="CENTER" />
+                        <Button fx:id="scrapingButton" mnemonicParsing="false" onAction="#scrapePage" style="-fx-background-radius: 100; -fx-background-color: #dbac00#dbac00 #dbac00#dbac00 #dbac00#dbac00 #dbac00#dbac00;" text="Scraping" textAlignment="CENTER" translateX="-100.0" />
+                        <Button fx:id="detectionButton" layoutX="322.0" layoutY="43.0" mnemonicParsing="false" onAction="#detectionFakeNews" style="-fx-background-radius: 100; -fx-background-color: #dbac00#dbac00 #dbac00#dbac00 #dbac00#dbac00 #dbac00#dbac00;" text="Detection" textAlignment="CENTER" translateX="100.0" />
                      </children></StackPane>
                   <ScrollPane prefHeight="331.0" prefWidth="685.0" style="-fx-background-color: #1d3176 #1d3176;">
                      <content>
