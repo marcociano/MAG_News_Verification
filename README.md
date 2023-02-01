@@ -14,7 +14,7 @@ Listed below are the tools used for the proper functioning of the system <br>
 * For the UI and the linking to the backend we've used JavaFX 11.0.2: https://bit.ly/3HZkQMI
 * Optionally, Scene Builder can be downloaded for easier UI management: https://bit.ly/3WkL80b
 * For the scraping functionality we've used JSoup 1.15.3: https://bit.ly/3YMTQWI
-
+* To download the report summary in pdf we used ITextPDF 5.5.9 library: https://bit.ly/40hPffJ
 
 ## Installation
 The following instructions explains how to install the system:
