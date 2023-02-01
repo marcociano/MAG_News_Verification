@@ -82,6 +82,7 @@ public class Summary_Controller {
 		File file= new File(DEST);
 		file.getParentFile().mkdirs();
 		new Summary_Controller().createPdf(DEST);
+		
 	}
 	
 	
@@ -132,6 +133,7 @@ public class Summary_Controller {
             cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
             cell.setHorizontalAlignment(Element.ALIGN_CENTER);
             table.addCell(cell);
+            
         }
         
         document.add(table);
