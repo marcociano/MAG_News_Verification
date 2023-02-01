@@ -44,6 +44,7 @@ public class Summary_Controller {
 	/*The Summary_Controller class is intended to manage the process of saving information obtained from the MAG platform.*/
 
 	@FXML
+	
     private ProgressBar progress;
 	
 	
