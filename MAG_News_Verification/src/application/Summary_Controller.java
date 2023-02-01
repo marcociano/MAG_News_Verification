@@ -4,15 +4,20 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Optional;
+
+import javax.swing.text.StyleConstants.FontConstants;
+
 import com.itextpdf.awt.geom.Rectangle;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
+import com.itextpdf.text.Font.FontFamily;
 import com.itextpdf.text.FontFactory;
 import com.itextpdf.text.Image;
 import com.itextpdf.text.PageSize;
+import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
@@ -22,6 +27,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceDialog;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.text.Text;
 
 
 public class Summary_Controller {
@@ -30,7 +36,13 @@ public class Summary_Controller {
 
 	@FXML
 	
+	
+	/*useful variable to report the percentage*/
     private ProgressBar progress;
+	
+	
+	
+	private int variable=0; 
 	
 	
 	/*Destination Path to save the pdf*/
@@ -91,37 +103,25 @@ public class Summary_Controller {
      
         /*Here I insert the logo*/
         
-        /*String imageFile = "/MAG_News_Verification/src/images/MAG_News_Verification_logo.png"; 
-        ImageData data = ImageDataFactory.create(imageFile);
         
-        Image img = new Image(data); 
+        Image img=Image.getInstance("C:\\Users\\angel\\git\\MAG_News_Verification\\MAG_News_Verification\\src\\images\\MAG_News_Verification_logo.png");
+        img.setAbsolutePosition(0, 0);
+        img.scaleAbsolute(100, 100);
         
         document.add(img);
-        */
-        
-        
-        /*Here I will create the table*/
-        PdfPTable table = new PdfPTable(8);
-        PdfPCell cell;
-        
-        Font font = FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, BaseColor.WHITE);
        
         
-        table = new PdfPTable(16);
+       
+        Font f=new Font(FontFamily.TIMES_ROMAN,50.0f,Font.UNDERLINE,BaseColor.WHITE);
+        Paragraph p = new Paragraph("MAG News Verification report!", f);
+        document.add(p);
+       
         
-        for(int aw = 0; aw < 16; aw++){
-        	
-        	cell = new PdfPCell(new Phrase("MAG News Verification Report!", font));
-            cell = new PdfPCell(new Phrase("The page analyzed produced the following result", font));
-            cell.setBackgroundColor(BaseColor.BLUE);
-            cell.setBorder(Rectangle.OUT_BOTTOM);
-            cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
-            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
-            table.addCell(cell);
-            
-        }
+        Font f2=new Font(FontFamily.TIMES_ROMAN,50.0f,Font.UNDERLINE,BaseColor.WHITE);
+        Paragraph p2 = new Paragraph("The analyzed page contains:" +variable+ "",f);
+        document.add(p2);
+       
         
-        document.add(table);
         document.close();
         
         /*Once the pdf is saved you will see the message that it was saved*/
