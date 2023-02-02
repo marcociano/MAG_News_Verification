@@ -97,6 +97,7 @@ public class Scraping_Controller implements Initializable {
         	  writer.write(e.text());
            }
             writer.close();
+           
         } catch (IOException e) {
             e.printStackTrace();
         }

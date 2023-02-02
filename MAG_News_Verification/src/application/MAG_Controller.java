@@ -162,10 +162,16 @@ public class MAG_Controller implements Initializable {
     		
     		BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
     		
-    		String output;
+    		String output, subOutputTrue="", subOutputFalse= "" ;
     		System.out.println("Output from Server: \n");
     		while((output = br.readLine())!= null) {
     			System.out.println(output);
+    			subOutputTrue= output.substring(0, 4);
+    			subOutputFalse= output.substring(0, 5);
+    			if(subOutputTrue.equals("True"))
+    		    	engine.setUserStyleSheetLocation(getClass().getResource("/stylesheet/highlighted_text_notFakeNews.css").toString());
+    			else if(subOutputFalse.equals("False"))
+    				engine.setUserStyleSheetLocation(getClass().getResource("/stylesheet/highlighted_text_FakeNews.css").toString());
     		}
     		
     		conn.disconnect();
@@ -173,9 +179,6 @@ public class MAG_Controller implements Initializable {
     	}catch(MalformedURLException e) {
     		e.printStackTrace();
     	}
-    		
-    	//engine.setUserStyleSheetLocation(getClass().getResource("/stylesheet/highlighted_text_notFakeNews.css").toString());
-    	
     }
       
     @FXML
