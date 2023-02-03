@@ -66,6 +66,7 @@ public class MAG_Controller implements Initializable {
 
         engine.getLoadWorker().stateProperty().addListener((obs, oldValue, newValue) -> {
             if (newValue == Worker.State.SUCCEEDED) {
+            	engine.setUserStyleSheetLocation(getClass().getResource("/stylesheet/unhighlighted.css").toString());
             	String title= "Loading Page Successful";
             	TrayNotification tray = new TrayNotification();
             	AnimationType type= AnimationType.POPUP;
@@ -195,7 +196,6 @@ public class MAG_Controller implements Initializable {
     			else if(subOutputFalse.equals("False"))
     				engine.setUserStyleSheetLocation(getClass().getResource("/stylesheet/highlighted_text_FakeNews.css").toString());
     		}
-    		
     		conn.disconnect();
     		
     	}catch(MalformedURLException e) {
