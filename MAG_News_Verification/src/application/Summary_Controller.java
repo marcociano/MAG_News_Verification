@@ -37,13 +37,9 @@ public class Summary_Controller {
 	
 	/*Destination Path to save the pdf*/
 	
-	public static final String DEST="C:/Users/angel/git/MAG_News_Verification/MAG_News_Verification/reportSummary.pdf";
-	
-	/*Destination Path to get the wallpaper image*/
-	
-	public static final String IMAGE="C:\\Users\\angel\\git\\MAG_News_Verification\\MAG_News_Verification\\src\\images\\wallpaper1.png";
-	
-
+	public static final String DEST = "./reportSummary.pdf";
+    public static final String WALLPAPER = "./src/images/wallpaper1.png";
+    public static final String LOGO = "./src/images/MAG_News_Verification_logo.png";
 	
 	public void reportPage(){
 					
@@ -86,7 +82,7 @@ public class Summary_Controller {
        
         
         PdfContentByte canvas = writer.getDirectContentUnder();
-        Image image = Image.getInstance(IMAGE);
+        Image image = Image.getInstance(WALLPAPER);
         image.scaleAbsolute(PageSize.A4);
         image.setAbsolutePosition(0, 0);
         canvas.addImage(image);
@@ -94,7 +90,7 @@ public class Summary_Controller {
         /*Here I insert the logo*/
         
         
-        Image img=Image.getInstance("C:\\Users\\angel\\git\\MAG_News_Verification\\MAG_News_Verification\\src\\images\\MAG_News_Verification_logo.png");
+        Image img=Image.getInstance(LOGO);
         img.setAbsolutePosition(0, 0);
         img.scaleAbsolute(100, 100);
         
@@ -102,12 +98,12 @@ public class Summary_Controller {
        
         
        
-        Font f=new Font(FontFamily.TIMES_ROMAN,50.0f,Font.UNDERLINE,BaseColor.WHITE);
+        Font f=new Font(FontFamily.TIMES_ROMAN,50.0f, Font.UNDERLINE, BaseColor.WHITE);
         Paragraph p = new Paragraph("MAG News Verification report!", f);
         document.add(p);
        
         
-        Font f2=new Font(FontFamily.TIMES_ROMAN,50.0f,Font.UNDERLINE,BaseColor.WHITE);
+        Font f2=new Font(FontFamily.TIMES_ROMAN, 50.0f, Font.UNDERLINE, BaseColor.WHITE);
         Paragraph p2 = new Paragraph("The analyzed page contains:" +variable+ "",f);
         document.add(p2);
        
