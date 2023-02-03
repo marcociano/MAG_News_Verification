@@ -7,8 +7,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import org.controlsfx.control.Notifications;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Worker;
 import javafx.event.ActionEvent;
@@ -16,14 +14,12 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.web.WebEngine;
@@ -31,6 +27,9 @@ import javafx.scene.web.WebHistory;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import tray.animations.AnimationType;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 public class MAG_Controller implements Initializable {
 
@@ -67,30 +66,31 @@ public class MAG_Controller implements Initializable {
 
         engine.getLoadWorker().stateProperty().addListener((obs, oldValue, newValue) -> {
             if (newValue == Worker.State.SUCCEEDED) {
-                System.out.println("Pagina caricata con successo");
+            	String title= "Loading Page Successful";
+            	TrayNotification tray = new TrayNotification();
+            	AnimationType type= AnimationType.POPUP;
+            	tray.setAnimationType(type);
+            	tray.setTitle(title);
+            	tray.setNotificationType(NotificationType.SUCCESS);
+            	tray.showAndDismiss(Duration.seconds(5));
                 history = webview.getEngine().getHistory();
                 ObservableList<WebHistory.Entry> entries = history.getEntries();
                 txtFieldUrl.setText(entries.get(history.getCurrentIndex()).getUrl());
-  
+                System.out.println("Pagina caricata con successo");
 
             } else if (newValue == Worker.State.FAILED) {
             	Image warning = new Image("/images/warning.png");
-            	Notifications notificationBuilder = Notifications.create()
-            			.title("Loading Page Failed")
-            			.text("Try re-entering the url correctly by specifying the domain (e.g. bbc.co.uk)")
-            			.graphic(new ImageView(warning))
-            			.hideAfter(Duration.seconds(3))
-            			.position(Pos.CENTER_LEFT)
-            			.onAction(new EventHandler<ActionEvent>() {
-
-							@Override
-							public void handle(ActionEvent arg0) {
-								System.out.println("Caricamento fallito");
-							}
-            				
-            			});
-            	notificationBuilder.darkStyle();
-            	notificationBuilder.show();     	
+            	String title= "Loading Page Failed";
+            	String message= "Try re-entering the url correctly by specifying\n the domain(e.g. bbc.co.uk)";
+            	TrayNotification tray = new TrayNotification();
+            	AnimationType type= AnimationType.POPUP;
+            	tray.setAnimationType(type);
+            	tray.setTitle(title);
+            	tray.setMessage(message);
+            	tray.setNotificationType(NotificationType.WARNING);
+            	tray.setImage(warning);
+            	tray.showAndDismiss(Duration.seconds(5));
+            	System.out.println("Caricamento fallito");
             }
         });
     }
@@ -184,7 +184,7 @@ public class MAG_Controller implements Initializable {
     		
     		BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
     		
-    		String output, subOutputTrue="", subOutputFalse= "" ;
+    		String output, subOutputTrue="", subOutputFalse= "";
     		System.out.println("Output from Server: \n");
     		while((output = br.readLine())!= null) {
     			System.out.println(output);
