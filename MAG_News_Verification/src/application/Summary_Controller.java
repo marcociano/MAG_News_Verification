@@ -137,6 +137,17 @@ public class Summary_Controller {
         alert.setContentText("We would like to inform you that the file was successfully saved");
         alert.showAndWait();
         
+        
+        /*Popup message to indicate Notice that the pdf has been downloaded*/
+		
+		String title= "The pdf has been downloaded";
+    	TrayNotification tray = new TrayNotification();
+    	AnimationType type= AnimationType.POPUP;
+    	tray.setAnimationType(type);
+    	tray.setTitle(title);
+    	tray.setNotificationType(NotificationType.SUCCESS);
+    	tray.showAndDismiss(Duration.seconds(5));
+        
 		
     }
 	
