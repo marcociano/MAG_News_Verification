@@ -26,7 +26,7 @@
             </ImageView>
             <TextFlow fx:id="accuracy" layoutX="17.0" layoutY="336.0" prefHeight="50.0" prefWidth="264.0" style="-fx-background-color: #2d7c86; -fx-background-radius: 100;">
                <children>
-                  <Label fx:id="label" alignment="CENTER" text="56% of fake news" textAlignment="CENTER" textFill="WHITE">
+                  <Label fx:id="label" alignment="CENTER" text="76% of fake news" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font size="34.0" />
                      </font>
