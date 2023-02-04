@@ -18,6 +18,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceDialog;
 import javafx.scene.control.ProgressBar;
+import javafx.util.Duration;
+import tray.animations.AnimationType;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 
 public class Summary_Controller {
@@ -54,7 +58,21 @@ public class Summary_Controller {
 			
 			if(result.isPresent()) {
 				System.out.println("Your choice: "+result.get());
+				
+				/*Popup message to indicate successful reporting*/
+				
+				String title= "The report was successful";
+		    	TrayNotification tray = new TrayNotification();
+		    	AnimationType type= AnimationType.POPUP;
+		    	tray.setAnimationType(type);
+		    	tray.setTitle(title);
+		    	tray.setNotificationType(NotificationType.SUCCESS);
+		    	tray.showAndDismiss(Duration.seconds(5));
+				
+		    	
 			}
+			
+			
 		}
 	
 	/*With regard to handling file information, having 
@@ -65,6 +83,8 @@ public class Summary_Controller {
 		File file= new File(DEST);
 		file.getParentFile().mkdirs();
 		new Summary_Controller().createPdf(DEST);
+		
+	
 		
 	}
 	
