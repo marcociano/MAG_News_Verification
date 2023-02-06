@@ -136,8 +136,8 @@
                         <TableView fx:id="tableView" editable="true" prefHeight="303.0" prefWidth="679.0">
                           <columns>
                             <TableColumn fx:id="id" prefWidth="40.000001311302185" text="#" />
-                              <TableColumn fx:id="textArticle" prefWidth="221.9999885559082" text="Text" />
-                            <TableColumn fx:id="trustworthiness" prefWidth="204.6666259765625" text="Trustwothiness" />
+                              <TableColumn fx:id="textArticle" prefWidth="221.9999885559082" text="TextUrl" />
+                            <TableColumn fx:id="trustworthiness" prefWidth="204.6666259765625" text="Trustworthiness" />
                               <TableColumn fx:id="prediction_percentage" prefWidth="210.66667683919275" text="Prediction %" />
                           </columns>
                         </TableView>
