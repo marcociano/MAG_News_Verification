@@ -24,4 +24,9 @@ The following instructions explains how to install the system:
   git clone https://github.com/marcociano/MAG_News_Verification.git
   ```
  
+ ## Authors
+ * **Marco Ciano** - *MAG News Verification* - [marcociano](https://github.com/marcociano)
+ * **Angela De Martino** - *MAG News Verification* - [AngelaDeM](https://github.com/AngelaDeM)
+ * **Giuseppe D'Avino** - *MAG News Verification* - [TherealBarnar](https://github.com/TherealBarnar)
+ 
  ### IN DEVELOPING MODE
