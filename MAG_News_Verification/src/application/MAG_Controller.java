@@ -7,6 +7,9 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.concurrent.atomic.AtomicInteger;
+
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Worker;
 import javafx.event.ActionEvent;
@@ -18,7 +21,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -43,7 +49,18 @@ public class MAG_Controller implements Initializable {
     private Button searchPage;
     @FXML
     private Button cronoHistory;
+    @FXML
+    private TableView<News> tableView;
+    @FXML
+    private TableColumn<News, Integer> id;
+    @FXML
+    private TableColumn<News, String> textArticle;
+    @FXML
+    private TableColumn<News, String> trustworthiness;
+    @FXML
+    private TableColumn<News, String> prediction_percentage;
     private WebEngine engine;
+    private static final AtomicInteger count = new AtomicInteger(0);
     private WebHistory history;
     private String homepage= "https://github.com/marcociano/MAG_News_Verification";
 
@@ -56,6 +73,12 @@ public class MAG_Controller implements Initializable {
     	engine=webview.getEngine();
     	engine.load(homepage);
     	txtFieldUrl.setText(homepage);
+    	id.setCellValueFactory(new PropertyValueFactory<>("Id"));
+    	textArticle.setCellValueFactory(new PropertyValueFactory<>("TextArticle"));
+    	trustworthiness.setCellValueFactory(new PropertyValueFactory<>("Trustworthiness"));
+    	prediction_percentage.setCellValueFactory(new PropertyValueFactory<>("PredictionPercentage"));
+    	tableView.setItems(getNewsList());
+    	
     }
 
     private void loadUrl() {
@@ -170,7 +193,8 @@ public class MAG_Controller implements Initializable {
     	stage.show();
     }
     
-    @FXML
+
+	@FXML
     private void detectionFakeNews(ActionEvent event) throws IOException{
     
     	try {
@@ -185,23 +209,46 @@ public class MAG_Controller implements Initializable {
     		
     		BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
     		
-    		String output, subOutputTrue="", subOutputFalse= "";
+    		String output, subOutputTrue, subOutputFalse;
+    		String statment, prediction;
     		System.out.println("Output from Server: \n");
     		while((output = br.readLine())!= null) {
     			System.out.println(output);
     			subOutputTrue= output.substring(0, 4);
     			subOutputFalse= output.substring(0, 5);
+    			statment= output.substring(0, 5);
+    			prediction= output.substring(5, 23);
     			if(subOutputTrue.equals("True"))
     		    	engine.setUserStyleSheetLocation(getClass().getResource("/stylesheet/highlighted_text_notFakeNews.css").toString());
     			else if(subOutputFalse.equals("False"))
     				engine.setUserStyleSheetLocation(getClass().getResource("/stylesheet/highlighted_text_FakeNews.css").toString());
+            	
+    			
+    			News news= new News();
+            	news.setId(getNextCountValue());
+                news.setTextArticle(txtFieldUrl.getText());
+                news.setTrustworthiness(statment);
+                news.setPredictionPercentage(prediction);
+                tableView.getItems().add(news);
+            	
     		}
+    		
     		conn.disconnect();
     		
     	}catch(MalformedURLException e) {
     		e.printStackTrace();
     	}
     }
+	
+	public int getNextCountValue() {
+		return count.incrementAndGet();
+	}
+
+	ObservableList<News> getNewsList(){
+		ObservableList<News> observableList = FXCollections.observableArrayList();
+			return observableList;
+	}
+
       
     @FXML
     private void viewSummary(ActionEvent event) throws IOException{
