@@ -64,7 +64,6 @@ public class MAG_Controller implements Initializable {
     private WebHistory history;
     private String homepage= "https://github.com/marcociano/MAG_News_Verification";
 
-
     /**
      * Initializes the controller class.
      */
@@ -234,6 +233,7 @@ public class MAG_Controller implements Initializable {
     		}
     		
     		conn.disconnect();
+    		
     		
     	}catch(MalformedURLException e) {
     		e.printStackTrace();

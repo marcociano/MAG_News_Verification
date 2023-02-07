@@ -2,9 +2,13 @@ package application;
 
 import static com.itextpdf.text.Element.ALIGN_CENTER;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.Optional;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Chunk;
@@ -32,16 +36,13 @@ public class Summary_Controller {
 	/*The Summary_Controller class is intended to manage the process of saving information obtained from the MAG platform.*/
 
 	@FXML
-	
-	
 	/*useful variable to report the percentage*/
     private ProgressBar progress;
 	
 	
 	
-	private String variable="Fake"; 
-	
-	private double percentage=76.00;
+	private String trustworthiness; 
+	private String accuracy;
 	
 	
 	/*Destination Path to save the pdf*/
@@ -88,22 +89,25 @@ public class Summary_Controller {
 		
 		File file= new File(DEST);
 		file.getParentFile().mkdirs();
-		new Summary_Controller().createPdf(DEST);
-		
-	
-		
+		new Summary_Controller().createPdf(DEST);	
 	}
-	
-	
 	
 	/*With regard to handling file information, having 
 	 dealing with files I enter IOException and DocumentException*/
 	
 	public void createPdf(String dest) throws IOException, DocumentException {
-		
+		URL url = new URL("http://127.0.0.1:5000/detecting");
+		HttpURLConnection conn =(HttpURLConnection) url.openConnection();
+		conn.setRequestMethod("GET");
+		BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+		String output;
+		while((output = br.readLine())!= null) {
+			trustworthiness= output.substring(0, 5);
+			accuracy= output.substring(5, 23);
+		}
 		/*I set the size of the pdf ad A4*/
 		Document document = new Document(PageSize.A4);
-        PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(dest));
+        PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(DEST));
         document.open();
        
         
@@ -149,8 +153,7 @@ public class Summary_Controller {
         imgs.scaleAbsolute(400, 400);
         
         document.add(imgs);
-       
-        
+             
         /*Management of the second paragraph*/
         
         document.add( Chunk.NEWLINE );
@@ -162,7 +165,7 @@ public class Summary_Controller {
        
         Font font2 = new Font(FontFamily.TIMES_ROMAN, 30.0f, Font.BOLD, BaseColor.BLACK);
         
-        Chunk c2 = new Chunk("The page analyzed is: " + variable, font2);
+        Chunk c2 = new Chunk("The page analyzed is: " + trustworthiness, font2);
         
         /*c2.setBackground(BaseColor.BLUE);*/
         
@@ -179,7 +182,7 @@ public class Summary_Controller {
         
         Font font3 = new Font(FontFamily.TIMES_ROMAN, 30.0f, Font.BOLD, BaseColor.BLACK);
         
-        Chunk c3 = new Chunk("The percentage found is: " + percentage, font3);
+        Chunk c3 = new Chunk("The percentage found is: " + accuracy, font3);
         
         /*c3.setBackground(BaseColor.BLUE);*/
         
@@ -194,7 +197,7 @@ public class Summary_Controller {
         document.add( Chunk.NEWLINE );
         document.add( Chunk.NEWLINE );
         document.add( Chunk.NEWLINE );
-        document.add( Chunk.NEWLINE );
+
         
         
         /*Management of the fourth paragraph*/
