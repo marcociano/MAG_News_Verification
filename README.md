@@ -9,6 +9,15 @@ Finally, it will also be possible to make a report that will allow you to become
 <p>You are not allowed to use our browser for legitimate, illegal or unauthorized purposes, including, but not limited to, violating any intellectual property or privacy laws. </p>
 <br>
 
+##How to use MAG browser properly:
+*Enter in the address bar the URL of the page you want to view.
+*Press enter to search or click on the search button.
+*Once you get the page view click on the "Scraping page" button.
+*Next, press the News Detection button to start the server.
+*Display the results obtained.
+*If you wish to have a summary of the analysis click on "View summary.From here you will have the ability to report that a crime is behind a news story via the "Report" button, and you can also download the report with the "Save information" button."
+
+
 ## Prerequisites
 Listed below are the tools used for the proper functioning of the system <br>
 * We suggest download of 'Eclipse 2022-12 EE' IDE from here: https://bit.ly/3FPxFq4
