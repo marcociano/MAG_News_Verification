@@ -10,7 +10,7 @@ Finally, it will also be possible to make a report that will allow you to become
 <br>
 
 <h3>How to use MAG browser properly:</h3>
-<p> 1. Enter in the address bar the URL of the page you want to view.
+<p> 1. Enter in the address bar the URL of the page you want to view. <br>
 2. Press enter to search or click on the search button.<br>
 3. Once you get the page view click on the "Scraping page" button.<br>
 4. Next, press the News Detection button to start the server. <br>
