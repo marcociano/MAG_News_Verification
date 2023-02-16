@@ -19,6 +19,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
+import javafx.scene.chart.XYChart.Series;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TableColumn;
@@ -64,6 +69,18 @@ public class MAG_Controller implements Initializable {
     private WebHistory history;
     private String homepage= "https://github.com/marcociano/MAG_News_Verification";
 
+    
+    @FXML
+    private LineChart<Integer,Integer> lineChart;
+    
+    @FXML
+    private CategoryAxis x;
+
+    @FXML
+    private NumberAxis y;
+    
+    private int counter=0;
+    
     /**
      * Initializes the controller class.
      */
@@ -229,15 +246,26 @@ public class MAG_Controller implements Initializable {
                 news.setTrustworthiness(statment);
                 news.setPredictionPercentage(prediction);
                 tableView.getItems().add(news);
+            	String accuracy=prediction.substring(0, 4);
+            	
+            	counter++;
+            	
+            	Series<Integer, Integer> series = new XYChart.Series<Integer,Integer>();
+            	series.getData().add(new XYChart.Data<Integer, Integer>());
+            	lineChart.getData().add(series);
+            
             	
     		}
     		
     		conn.disconnect();
     		
     		
+    		
+    		
     	}catch(MalformedURLException e) {
     		e.printStackTrace();
     	}
+    	
     }
 	
 	public int getNextCountValue() {
