@@ -185,7 +185,6 @@ public class Summary_Controller {
         
         document.add(para2);
         
-        
         /*Management of the third paragraph*/
         
         document.add( Chunk.NEWLINE );

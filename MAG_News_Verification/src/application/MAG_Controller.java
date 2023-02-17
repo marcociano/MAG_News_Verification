@@ -79,7 +79,7 @@ public class MAG_Controller implements Initializable {
     //private int counter=0;
     
     /**
-     * Initializes the controller class.
+      Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {

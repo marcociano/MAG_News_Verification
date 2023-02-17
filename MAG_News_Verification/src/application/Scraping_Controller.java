@@ -46,10 +46,8 @@ public class Scraping_Controller implements Initializable {
     			urlTextField.textProperty().isEmpty()
     			);
     	
-    	  
         debouncer = new PauseTransition(Duration.seconds(1));
-
-     
+   
         queryTextField.textProperty().addListener((obs, ov, nv) -> {
             
             debouncer.setOnFinished(evt -> {
