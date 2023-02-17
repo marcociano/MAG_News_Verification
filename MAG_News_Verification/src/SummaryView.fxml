@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
 <Pane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: e9e9e9;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Summary_Controller">
@@ -18,19 +19,19 @@
       <AnchorPane layoutX="157.0" prefHeight="400.0" prefWidth="297.0" style="-fx-background-color: #2d7c86;">
          <children>
             <Circle fx:id="cicle" fill="#dbac00" layoutX="144.0" layoutY="189.0" radius="105.0" stroke="WHITE" strokeType="INSIDE" />
-            <ProgressBar fx:id="progressBarPercentage" layoutX="44.0" layoutY="303.0" prefWidth="200.0" progress="0.0" />
+            <ProgressBar fx:id="progress" layoutX="44.0" layoutY="303.0" prefWidth="200.0" progress="0.0" />
             <ImageView fitHeight="188.0" fitWidth="188.0" layoutX="50.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/news.png" />
                </image>
             </ImageView>
-            <TextFlow fx:id="accuracy" layoutX="17.0" layoutY="336.0" prefHeight="50.0" prefWidth="264.0" style="-fx-background-color: #2d7c86; -fx-background-radius: 100;">
+            <TextFlow fx:id="accuracy" layoutX="17.0" layoutY="336.0" prefHeight="50.0" prefWidth="264.0" style="-fx-background-color: #2d7c86; -fx-background-radius: 100;" textAlignment="CENTER">
                <children>
-                  <Label fx:id="label" alignment="CENTER" text="76% of fake news" textAlignment="CENTER" textFill="WHITE">
+                  <Text fx:id="score" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="114.8076171875">
                      <font>
-                        <Font size="34.0" />
+                        <Font size="27.0" />
                      </font>
-                  </Label>
+                  </Text>
                </children></TextFlow>
          </children>
       </AnchorPane>

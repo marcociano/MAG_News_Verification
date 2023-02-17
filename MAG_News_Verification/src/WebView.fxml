@@ -145,12 +145,12 @@
                      </content>
                   </ScrollPane>
                   <StackPane prefHeight="61.0" prefWidth="685.0" />
-                  <LineChart>
+                  <LineChart fx:id="lineChart" style="-fx-background-color: white;" title="News trend">
                     <xAxis>
-                      <CategoryAxis side="BOTTOM" />
+                      <CategoryAxis side="BOTTOM" fx:id="x" />
                     </xAxis>
                     <yAxis>
-                      <NumberAxis side="LEFT" />
+                      <NumberAxis fx:id="y" side="LEFT" />
                     </yAxis>
                   </LineChart>
                   <Button fx:id="viewSummaryutton" mnemonicParsing="false" onAction="#viewSummary" style="-fx-background-color: #dbac00; -fx-background-radius: 100;" text="View summary" textAlignment="CENTER">

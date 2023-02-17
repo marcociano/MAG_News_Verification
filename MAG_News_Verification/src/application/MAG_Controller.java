@@ -8,7 +8,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicInteger;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Worker;
@@ -22,8 +21,6 @@ import javafx.scene.Scene;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.XYChart;
-import javafx.scene.chart.XYChart.Series;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TableColumn;
@@ -68,7 +65,7 @@ public class MAG_Controller implements Initializable {
     private static final AtomicInteger count = new AtomicInteger(0);
     private WebHistory history;
     private String homepage= "https://github.com/marcociano/MAG_News_Verification";
-
+    public String statment, prediction;
     
     @FXML
     private LineChart<Integer,Integer> lineChart;
@@ -79,7 +76,7 @@ public class MAG_Controller implements Initializable {
     @FXML
     private NumberAxis y;
     
-    private int counter=0;
+    //private int counter=0;
     
     /**
      * Initializes the controller class.
@@ -226,14 +223,14 @@ public class MAG_Controller implements Initializable {
     		BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
     		
     		String output, subOutputTrue, subOutputFalse;
-    		String statment, prediction;
+    		
     		System.out.println("Output from Server: \n");
     		while((output = br.readLine())!= null) {
     			System.out.println(output);
     			subOutputTrue= output.substring(0, 4);
     			subOutputFalse= output.substring(0, 5);
     			statment= output.substring(0, 5);
-    			prediction= output.substring(5, 23);
+    			prediction= output.substring(5, 22);
     			if(subOutputTrue.equals("True"))
     		    	engine.setUserStyleSheetLocation(getClass().getResource("/stylesheet/highlighted_text_notFakeNews.css").toString());
     			else if(subOutputFalse.equals("False"))
@@ -246,15 +243,13 @@ public class MAG_Controller implements Initializable {
                 news.setTrustworthiness(statment);
                 news.setPredictionPercentage(prediction);
                 tableView.getItems().add(news);
-            	String accuracy=prediction.substring(0, 4);
             	
-            	counter++;
             	
+            	/*counter++;
             	Series<Integer, Integer> series = new XYChart.Series<Integer,Integer>();
             	series.getData().add(new XYChart.Data<Integer, Integer>());
             	lineChart.getData().add(series);
-            
-            	
+            	*/
     		}
     		
     		conn.disconnect();
@@ -282,6 +277,8 @@ public class MAG_Controller implements Initializable {
     private void viewSummary(ActionEvent event) throws IOException{
     	FXMLLoader loader = new FXMLLoader(getClass().getResource("/SummaryView.fxml"));  
     	Parent root= loader.load();
+    	Summary_Controller summary_controller=loader.getController();
+    	summary_controller.showScore(prediction);
     	Stage stage= new Stage();
     	stage.setScene(new Scene(root));
     	stage.setTitle("Summary Page");

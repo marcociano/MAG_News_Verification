@@ -25,6 +25,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceDialog;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.text.Text;
 import javafx.util.Duration;
 import tray.animations.AnimationType;
 import tray.notification.NotificationType;
@@ -36,14 +37,12 @@ public class Summary_Controller {
 	/*The Summary_Controller class is intended to manage the process of saving information obtained from the MAG platform.*/
 
 	@FXML
-	/*useful variable to report the percentage*/
+	/*Useful variable to report the percentage*/
     private ProgressBar progress;
-	
-	
-	
 	private String trustworthiness; 
 	private String accuracy;
-	
+	@FXML
+	private Text score;
 	
 	/*Destination Path to save the pdf*/
 	
@@ -51,6 +50,16 @@ public class Summary_Controller {
     public static final String WALLPAPER = "./src/images/wallpaper4.jpg";
     public static final String LOGODIPARTIMENTO = "./src/images/logoDipartimento.png";
     public static final String LOGOMAG="./src/images/MAG_News_Verification_logo.png";
+    
+    public void showScore(String prediction) {
+    	String scoreNews = prediction.substring(2, 4);
+    	String progress_Score = prediction.substring(0,3);
+    	double prog_stats= Double.valueOf(progress_Score);
+    	
+    	progress.setProgress(prog_stats);
+		score.setText(scoreNews + "% of Fake News");
+    	
+    }
 	
 	public void reportPage(){
 					
@@ -64,7 +73,7 @@ public class Summary_Controller {
 			Optional<String> result=dialog.showAndWait();
 			
 			if(result.isPresent()) {
-				System.out.println("Your choice: "+result.get());
+				System.out.println("Your choice: " + result.get());
 				
 				/*Popup message to indicate successful reporting*/
 				
@@ -103,8 +112,9 @@ public class Summary_Controller {
 		String output;
 		while((output = br.readLine())!= null) {
 			trustworthiness= output.substring(0, 5);
-			accuracy= output.substring(5, 23);
+			accuracy= output.substring(5, 22);
 		}
+	
 		/*I set the size of the pdf ad A4*/
 		Document document = new Document(PageSize.A4);
         PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(DEST));
