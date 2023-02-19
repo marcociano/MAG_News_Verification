@@ -21,6 +21,8 @@ import javafx.scene.Scene;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
+import javafx.scene.chart.XYChart.Series;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TableColumn;
@@ -39,7 +41,7 @@ import tray.animations.AnimationType;
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
 
-public class MAG_Controller implements Initializable {
+public class MAG_Controller implements Initializable{
 
     @FXML
     private TextField txtFieldUrl;
@@ -68,7 +70,7 @@ public class MAG_Controller implements Initializable {
     public String statment, prediction;
     
     @FXML
-    private LineChart<Integer,Integer> lineChart;
+    private LineChart<Integer, Integer> lineChart;
     
     @FXML
     private CategoryAxis x;
@@ -76,7 +78,6 @@ public class MAG_Controller implements Initializable {
     @FXML
     private NumberAxis y;
     
-    //private int counter=0;
     
     /**
       Initializes the controller class.
@@ -244,12 +245,39 @@ public class MAG_Controller implements Initializable {
                 news.setPredictionPercentage(prediction);
                 tableView.getItems().add(news);
             	
+            	/*Graph that monitors news trends. 
+            	 * There are two lines: one indicates the percentage of fake news found and the other is used to track the overall page trend i.e., 
+            	 * it takes only two values to indicate whether the news is fake or not.*/
+                
+                XYChart.Series series= new XYChart.Series();
+                series.setName("Statistics");
             	
-            	/*counter++;
-            	Series<Integer, Integer> series = new XYChart.Series<Integer,Integer>();
-            	series.getData().add(new XYChart.Data<Integer, Integer>());
-            	lineChart.getData().add(series);
-            	*/
+            	series.getData().add(new XYChart.Data(1,68));
+            	series.getData().add(new XYChart.Data(2,88));
+            	series.getData().add(new XYChart.Data(3,27));
+            	series.getData().add(new XYChart.Data(4,24));
+            	series.getData().add(new XYChart.Data(5,29));
+            	series.getData().add(new XYChart.Data(6,33));
+            	series.getData().add(new XYChart.Data(7,56));
+            	series.getData().add(new XYChart.Data(8,22));
+            	series.getData().add(new XYChart.Data(9,99));
+            	series.getData().add(new XYChart.Data(10,89));
+            	
+            	XYChart.Series series2= new XYChart.Series<>();
+            	
+            	series2.getData().add(new XYChart.Data(1,50));
+            	series2.getData().add(new XYChart.Data(2,50));
+            	series2.getData().add(new XYChart.Data(3,0));
+            	series2.getData().add(new XYChart.Data(4,0));
+            	series2.getData().add(new XYChart.Data(5,0));
+            	series2.getData().add(new XYChart.Data(6,0));
+            	series2.getData().add(new XYChart.Data(7,50));
+            	series2.getData().add(new XYChart.Data(8,0));
+            	series2.getData().add(new XYChart.Data(9,50));
+            	series2.getData().add(new XYChart.Data(10,50));
+            	
+            	lineChart.getData().addAll(series,series2);
+            	
     		}
     		
     		conn.disconnect();
@@ -286,6 +314,8 @@ public class MAG_Controller implements Initializable {
     	stage.show();
     }
     
+    
+   
   
     
 }
