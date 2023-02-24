@@ -8,6 +8,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicInteger;
+
+import javafx.animation.TranslateTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Worker;
@@ -21,16 +23,18 @@ import javafx.scene.Scene;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebHistory;
 import javafx.scene.web.WebView;
@@ -62,6 +66,12 @@ public class MAG_Controller implements Initializable{
     private TableColumn<News, String> trustworthiness;
     @FXML
     private TableColumn<News, String> prediction_percentage;
+    @FXML
+    private ImageView menu;
+    @FXML
+    private ImageView menuBack;
+    @FXML
+    private AnchorPane slider;
     private WebEngine engine;
     private static final AtomicInteger count = new AtomicInteger(0);
     private WebHistory history;
@@ -83,6 +93,33 @@ public class MAG_Controller implements Initializable{
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+    	slider.setTranslateX(600);
+    	menu.setOnMouseClicked(event -> {
+    		TranslateTransition slide = new TranslateTransition();
+    		slide.setDuration(Duration.seconds(0.4));
+    		slide.setNode(slider);
+    		slide.setToX(0);
+    		slide.play();
+    		
+    		slider.setTranslateX(600);
+    		slide.setOnFinished((ActionEvent e) -> {
+    			menu.setVisible(false);
+    			menuBack.setVisible(true);
+    		});
+    	});
+    	menuBack.setOnMouseClicked(event -> {
+    		TranslateTransition slide = new TranslateTransition();
+    		slide.setDuration(Duration.seconds(0.4));
+    		slide.setNode(slider);
+    		slide.setToX(600);
+    		slide.play();
+    		
+    		slider.setTranslateX(0);
+    		slide.setOnFinished((ActionEvent e) -> {
+    			menu.setVisible(true);
+    			menuBack.setVisible(false);
+    		});
+    	});
     	engine=webview.getEngine();
     	engine.load(homepage);
     	txtFieldUrl.setText(homepage);
@@ -248,40 +285,10 @@ public class MAG_Controller implements Initializable{
             	 * There are two lines: one indicates the percentage of fake news found and the other is used to track the overall page trend i.e., 
             	 * it takes only two values to indicate whether the news is fake or not.*/
                 
-                XYChart.Series series= new XYChart.Series();
-                series.setName("Statistics");
-            	
-            	series.getData().add(new XYChart.Data(1,68));
-            	series.getData().add(new XYChart.Data(2,88));
-            	series.getData().add(new XYChart.Data(3,27));
-            	series.getData().add(new XYChart.Data(4,24));
-            	series.getData().add(new XYChart.Data(5,29));
-            	series.getData().add(new XYChart.Data(6,33));
-            	series.getData().add(new XYChart.Data(7,56));
-            	series.getData().add(new XYChart.Data(8,22));
-            	series.getData().add(new XYChart.Data(9,99));
-            	series.getData().add(new XYChart.Data(10,89));
-            	
-            	XYChart.Series series2= new XYChart.Series<>();
-            	
-            	series2.getData().add(new XYChart.Data(1,50));
-            	series2.getData().add(new XYChart.Data(2,50));
-            	series2.getData().add(new XYChart.Data(3,0));
-            	series2.getData().add(new XYChart.Data(4,0));
-            	series2.getData().add(new XYChart.Data(5,0));
-            	series2.getData().add(new XYChart.Data(6,0));
-            	series2.getData().add(new XYChart.Data(7,50));
-            	series2.getData().add(new XYChart.Data(8,0));
-            	series2.getData().add(new XYChart.Data(9,50));
-            	series2.getData().add(new XYChart.Data(10,50));
-            	
-            	lineChart.getData().addAll(series,series2);
-            	
+               
     		}
     		
     		conn.disconnect();
-    		
-    		
     		
     		
     	}catch(MalformedURLException e) {

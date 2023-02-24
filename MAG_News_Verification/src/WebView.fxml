@@ -9,7 +9,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -28,20 +27,20 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.web.WebView?>
 
-<AnchorPane minHeight="400.0" minWidth="600.0" prefHeight="809.0" prefWidth="1483.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MAG_Controller">
+<AnchorPane minHeight="400.0" minWidth="600.0" prefHeight="816.0" prefWidth="1483.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MAG_Controller">
    <children>
-      <BorderPane layoutY="-2.0" maxHeight="1082.0" maxWidth="1920.0" minHeight="804.0" minWidth="887.0" prefHeight="813.0" prefWidth="887.0">
+      <BorderPane layoutY="-2.0" maxHeight="1082.0" maxWidth="1920.0" minHeight="804.0" minWidth="887.0" prefHeight="813.0" prefWidth="1484.0">
          <top>
-            <HBox>
+            <HBox prefHeight="98.0" prefWidth="1484.0">
                <children>
-                  <AnchorPane maxHeight="1080.0" maxWidth="1920.0" minHeight="0.0" minWidth="600.0" prefHeight="112.0" prefWidth="1224.0" style="-fx-background-color: #2d7c86#2d7c86;">
+                  <AnchorPane maxHeight="1080.0" maxWidth="1920.0" minHeight="0.0" minWidth="600.0" prefHeight="98.0" prefWidth="1493.0" style="-fx-background-color: #2d7c86#2d7c86;">
                      <children>
-                        <ImageView fitHeight="109.0" fitWidth="119.0" layoutX="1.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="96.0" fitWidth="109.0" layoutX="1.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@/images/MAG_News_Verification_logo.png" />
                            </image>
                         </ImageView>
-                        <Button layoutX="126.0" layoutY="53.0" mnemonicParsing="false" onAction="#back" prefHeight="29.0" prefWidth="9.0" style="-fx-background-radius: 100; -fx-background-color: #dbac00#dbac00;" translateY="-15.0">
+                        <Button layoutX="127.0" layoutY="50.0" mnemonicParsing="false" onAction="#back" prefHeight="29.0" prefWidth="9.0" style="-fx-background-radius: 100; -fx-background-color: #dbac00#dbac00;" translateY="-15.0">
                            <graphic>
                               <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -49,7 +48,7 @@
                                  </image>
                               </ImageView>
                            </graphic></Button>
-                        <Button layoutX="164.0" layoutY="53.0" mnemonicParsing="false" onAction="#reload" prefHeight="29.0" prefWidth="26.0" style="-fx-background-radius: 100; -fx-background-color: #dbac00#dbac00 #dbac00#dbac00;" translateY="-15.0">
+                        <Button layoutX="165.0" layoutY="50.0" mnemonicParsing="false" onAction="#reload" prefHeight="29.0" prefWidth="26.0" style="-fx-background-radius: 100; -fx-background-color: #dbac00#dbac00 #dbac00#dbac00;" translateY="-15.0">
                            <graphic>
                               <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -57,16 +56,16 @@
                                  </image>
                               </ImageView>
                            </graphic></Button>
-                        <Button layoutX="255.0" layoutY="51.0" mnemonicParsing="false" onAction="#homepage" prefHeight="30.0" prefWidth="31.0" style="-fx-background-color: #dbac00#dbac00 #dbac00#dbac00; -fx-background-radius: 100;" text="" translateY="-15.0">
+                        <Button layoutX="255.0" layoutY="47.0" mnemonicParsing="false" onAction="#homepage" prefHeight="34.0" prefWidth="34.0" style="-fx-background-color: #dbac00#dbac00 #dbac00#dbac00; -fx-background-radius: 100;" text="" translateY="-15.0">
                            <graphic>
-                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@/images/homepage.png" />
                                  </image>
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button layoutX="201.0" layoutY="52.0" mnemonicParsing="false" onAction="#forward" prefHeight="29.0" prefWidth="20.0" style="-fx-background-radius: 100; -fx-background-color: #dbac00#dbac00 #dbac00#dbac00;" translateY="-15.0">
+                        <Button layoutX="202.0" layoutY="50.0" mnemonicParsing="false" onAction="#forward" prefHeight="29.0" prefWidth="20.0" style="-fx-background-radius: 100; -fx-background-color: #dbac00#dbac00 #dbac00#dbac00;" translateY="-15.0">
                            <graphic>
                               <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -75,7 +74,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button layoutX="709.0" layoutY="52.0" mnemonicParsing="false" onAction="#zoomOut" prefHeight="28.0" prefWidth="23.0" style="-fx-background-radius: 100; -fx-background-color: #dbac00#dbac00 #dbac00#dbac00;" translateY="-15.0">
+                        <Button layoutX="1118.0" layoutY="51.0" mnemonicParsing="false" onAction="#zoomOut" prefHeight="28.0" prefWidth="23.0" style="-fx-background-radius: 100; -fx-background-color: #dbac00#dbac00 #dbac00#dbac00;" translateY="-15.0">
                            <graphic>
                               <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -84,18 +83,18 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <ProgressBar fx:id="progress" layoutX="123.0" layoutY="93.0" prefHeight="8.0" prefWidth="664.0" progress="0.0" AnchorPane.leftAnchor="123.0" AnchorPane.rightAnchor="100.0" />
-                        <TextField fx:id="txtFieldUrl" layoutX="291.0" layoutY="53.0" onKeyPressed="#txtEnterKey" prefHeight="26.0" prefWidth="367.0" style="-fx-background-radius: 1000;" translateY="-15.0" AnchorPane.leftAnchor="291.0" AnchorPane.rightAnchor="229.0" />
-                        <Button fx:id="cronoHistory" layoutX="808.0" layoutY="49.0" mnemonicParsing="false" onAction="#historyPages" prefHeight="35.0" prefWidth="35.0" style="-fx-background-radius: 1000;" translateY="-15.0">
+                        <ProgressBar fx:id="progress" layoutX="116.0" layoutY="82.0" prefHeight="6.0" prefWidth="1130.0" progress="0.0" AnchorPane.leftAnchor="116.0" AnchorPane.rightAnchor="238.0" />
+                        <TextField fx:id="txtFieldUrl" layoutX="291.0" layoutY="53.0" onKeyPressed="#txtEnterKey" prefHeight="26.0" prefWidth="769.0" style="-fx-background-radius: 1000;" translateY="-15.0" AnchorPane.leftAnchor="291.0" AnchorPane.rightAnchor="423.0" />
+                        <Button fx:id="cronoHistory" layoutX="1206.0" layoutY="49.0" mnemonicParsing="false" onAction="#historyPages" prefHeight="32.0" prefWidth="32.0" style="-fx-background-radius: 1000;" translateY="-15.0">
                            <graphic>
-                              <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="12.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@/images/history.png" />
                                  </image>
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button fx:id="searchPage" defaultButton="true" layoutX="671.0" layoutY="52.0" mnemonicParsing="false" onAction="#searchPage" prefHeight="28.0" prefWidth="31.0" style="-fx-background-radius: 1000;" textOverrun="CLIP" translateX="-10.0" translateY="-15.0">
+                        <Button fx:id="searchPage" defaultButton="true" layoutX="1073.0" layoutY="52.0" mnemonicParsing="false" onAction="#searchPage" prefHeight="26.0" prefWidth="13.0" style="-fx-background-radius: 1000;" textOverrun="CLIP" translateX="-10.0" translateY="-15.0">
                            <graphic>
                               <ImageView fitHeight="11.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -104,7 +103,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button layoutX="743.0" layoutY="52.0" mnemonicParsing="false" onAction="#zoomIn" prefHeight="28.0" prefWidth="27.0" style="-fx-background-radius: 100; -fx-background-color: #dbac00#dbac00 #dbac00#dbac00;" translateY="-15.0">
+                        <Button layoutX="1152.0" layoutY="51.0" mnemonicParsing="false" onAction="#zoomIn" prefHeight="28.0" prefWidth="27.0" style="-fx-background-radius: 100; -fx-background-color: #dbac00#dbac00 #dbac00#dbac00;" translateY="-15.0">
                            <graphic>
                               <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -113,39 +112,45 @@
                               </ImageView>
                            </graphic>
                         </Button>
+                        <ImageView fx:id="menu" fitHeight="45.0" fitWidth="45.0" layoutX="1370.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@/images/hamburger_menu.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="menuBack" fitHeight="45.0" fitWidth="45.0" layoutX="1370.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@/images/hamburger_menu.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </AnchorPane>
                </children>
             </HBox>
          </top>
          <center>
-            <WebView fx:id="webview" maxHeight="1080.0" maxWidth="1920.0" minHeight="400.0" minWidth="600.0" prefHeight="710.0" prefWidth="980.0" BorderPane.alignment="CENTER" />
+            <WebView fx:id="webview" maxHeight="1080.0" maxWidth="1920.0" minHeight="400.0" minWidth="600.0" prefHeight="715.0" prefWidth="1483.0" AnchorPane.bottomAnchor="35.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="30.0" BorderPane.alignment="CENTER" />
          </center>
       </BorderPane>
-      <AnchorPane layoutX="888.0" prefHeight="811.0" prefWidth="595.0" style="-fx-background-color: #2d7c86#2d7c86;">
+      <AnchorPane fx:id="slider" layoutX="941.0" layoutY="96.0" prefHeight="720.0" prefWidth="543.0" style="-fx-background-color: #2d7c86#2d7c86;">
          <children>
-            <VBox layoutX="15.0" layoutY="11.0" prefHeight="776.0" prefWidth="568.0">
+            <VBox layoutX="11.0" prefHeight="705.0" prefWidth="523.0">
                <children>
-                  <StackPane prefHeight="217.0" prefWidth="680.0">
+                  <StackPane prefHeight="259.0" prefWidth="527.0">
                      <children>
                         <Button fx:id="scrapingButton" mnemonicParsing="false" onAction="#scrapePage" style="-fx-background-radius: 100; -fx-background-color: #dbac00#dbac00 #dbac00#dbac00 #dbac00#dbac00 #dbac00#dbac00;" text="Scraping Page" textAlignment="CENTER" translateX="-100.0" />
                         <Button fx:id="detectionButton" layoutX="322.0" layoutY="43.0" mnemonicParsing="false" onAction="#detectionFakeNews" style="-fx-background-radius: 100; -fx-background-color: #dbac00#dbac00 #dbac00#dbac00 #dbac00#dbac00 #dbac00#dbac00;" text="News Detection" textAlignment="CENTER" translateX="100.0" />
                      </children>
                   </StackPane>
-                  <ScrollPane prefHeight="331.0" prefWidth="557.0" style="-fx-background-color: #1d3176 #1d3176;">
-                     <content>
-                        <TableView fx:id="tableView" editable="true" prefHeight="213.0" prefWidth="565.0">
-                          <columns>
-                            <TableColumn fx:id="id" prefWidth="40.000001311302185" text="#" />
-                              <TableColumn fx:id="textArticle" prefWidth="149.58404541015625" text="TextUrl" />
-                            <TableColumn fx:id="trustworthiness" prefWidth="187.4158935546875" text="Trustworthiness" />
-                              <TableColumn fx:id="prediction_percentage" prefWidth="186.0" text="Accuracy %" />
-                          </columns>
-                        </TableView>
-                     </content>
-                  </ScrollPane>
-                  <StackPane prefHeight="158.0" prefWidth="568.0" />
-                  <LineChart fx:id="lineChart" prefHeight="340.0" prefWidth="568.0" style="-fx-background-color: white;" title="News trend">
+                  <TableView fx:id="tableView" editable="true" prefHeight="366.0" prefWidth="523.0">
+                    <columns>
+                      <TableColumn fx:id="id" prefWidth="40.000001311302185" text="#" />
+                        <TableColumn fx:id="textArticle" prefWidth="149.58404541015625" text="TextUrl" />
+                      <TableColumn fx:id="trustworthiness" prefWidth="146.32427978515625" text="Trustworthiness" />
+                        <TableColumn fx:id="prediction_percentage" prefWidth="227.17572021484375" text="Accuracy %" />
+                    </columns>
+                  </TableView>
+                  <StackPane prefHeight="215.0" prefWidth="544.0" />
+                  <LineChart fx:id="lineChart" prefHeight="372.0" prefWidth="523.0" style="-fx-background-color: white;" title="News trend">
                     <xAxis>
                       <CategoryAxis side="BOTTOM" fx:id="x" />
                     </xAxis>
@@ -153,20 +158,20 @@
                       <NumberAxis fx:id="y" side="LEFT" />
                     </yAxis>
                   </LineChart>
-                  <StackPane prefHeight="177.0" prefWidth="568.0">
+                  <StackPane prefHeight="237.0" prefWidth="523.0">
                      <children>
                         <Button fx:id="viewSummaryutton" mnemonicParsing="false" onAction="#viewSummary" style="-fx-background-color: #dbac00; -fx-background-radius: 100;" text="View summary" textAlignment="CENTER" />
                      </children>
                   </StackPane>
-                  <TabPane prefHeight="288.0" prefWidth="568.0" tabClosingPolicy="UNAVAILABLE">
+                  <TabPane prefHeight="338.0" prefWidth="223.0" tabClosingPolicy="UNAVAILABLE">
                     <tabs>
                       <Tab fx:id="tabPane" text="Statistic">
                         <content>
-                          <AnchorPane fx:id="statisticTab" minHeight="0.0" minWidth="0.0" prefHeight="98.0" prefWidth="619.0" style="-fx-background-color: e9e9e9;">
+                          <AnchorPane fx:id="statisticTab" minHeight="0.0" minWidth="0.0" prefHeight="127.0" prefWidth="467.0" style="-fx-background-color: e9e9e9;">
                                  <children>
-                                    <AnchorPane layoutX="14.0" layoutY="-7.0" prefHeight="120.0" prefWidth="591.0" style="-fx-background-color: d3d3d3; -fx-background-radius: 0; -fx-border-color: d3d3d3; -fx-border-radius: 0;">
+                                    <AnchorPane layoutX="14.0" layoutY="-7.0" prefHeight="158.0" prefWidth="473.0" style="-fx-background-color: d3d3d3; -fx-background-radius: 0; -fx-border-color: d3d3d3; -fx-border-radius: 0;">
                                        <children>
-                                          <AnchorPane layoutX="81.0" layoutY="13.0" prefHeight="111.0" prefWidth="237.0" style="-fx-background-color: bdbebd; -fx-background-radius: 0; -fx-border-color: d3d3d3; -fx-border-radius: 0;">
+                                          <AnchorPane layoutX="43.0" layoutY="17.0" prefHeight="111.0" prefWidth="237.0" style="-fx-background-color: bdbebd; -fx-background-radius: 0; -fx-border-color: d3d3d3; -fx-border-radius: 0;">
                                              <children>
                                                 <AnchorPane layoutX="119.0" layoutY="46.0" prefHeight="55.0" prefWidth="108.0" style="-fx-background-color: f7f7f7;">
                                                    <children>
@@ -192,12 +197,8 @@
                                                 </ImageView>
                                              </children>
                                           </AnchorPane>
-                                          <Text layoutX="7.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Statistic" AnchorPane.topAnchor="6.41796875">
-                                             <font>
-                                                <Font size="20.0" />
-                                             </font>
-                                          </Text>
-                                          <BarChart layoutX="334.0" layoutY="7.0" prefHeight="150.0" prefWidth="215.0">
+                                          <Text layoutX="-8.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Statistic" AnchorPane.topAnchor="13.0" />
+                                          <BarChart layoutX="291.0" layoutY="5.0" prefHeight="150.0" prefWidth="214.0">
                                             <xAxis>
                                               <CategoryAxis prefHeight="22.0" prefWidth="195.0" side="BOTTOM" />
                                             </xAxis>
@@ -215,11 +216,11 @@
                         <content>
                           <AnchorPane fx:id="highlightTab" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: d3d3d3;">
                                  <children>
-                                    <AnchorPane fx:id="anchorPaneHighlightOptions" layoutX="104.0" layoutY="30.0" prefHeight="106.0" prefWidth="418.0" style="-fx-background-color: bdbebd; -fx-background-radius: 100;" AnchorPane.bottomAnchor="9.0" AnchorPane.topAnchor="35.0">
+                                    <AnchorPane fx:id="anchorPaneHighlightOptions" layoutX="104.0" layoutY="30.0" prefHeight="83.0" prefWidth="410.0" style="-fx-background-color: bdbebd; -fx-background-radius: 100;" AnchorPane.bottomAnchor="9.0" AnchorPane.topAnchor="35.0">
                                        <children>
-                                          <Circle fill="RED" layoutX="118.0" layoutY="30.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.rightAnchor="275.0" />
-                                          <Label layoutX="40.0" layoutY="39.0" prefHeight="60.0" prefWidth="156.0" text="Red means heavy fake news" />
-                                          <Circle fill="LIME" layoutX="308.0" layoutY="31.0" radius="24.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.leftAnchor="284.0" />
+                                          <Circle fill="RED" layoutX="117.0" layoutY="37.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.rightAnchor="268.0" />
+                                          <Label layoutX="38.0" layoutY="49.0" prefHeight="41.0" prefWidth="156.0" text="Red means heavy fake news" />
+                                          <Circle fill="LIME" layoutX="310.0" layoutY="38.0" radius="24.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.leftAnchor="286.0" />
                                           <Label layoutX="233.0" layoutY="61.0" text="Green means not fake news " />
                                        </children>
                                     </AnchorPane>
@@ -238,12 +239,12 @@
                           <content>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="141.0" prefWidth="619.0" style="-fx-background-color: bdbebd;">
                                  <children>
-                                    <ImageView fx:id="logoMAG" fitHeight="105.0" fitWidth="103.0" layoutX="2.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="9.5" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="8.0">
+                                    <ImageView fx:id="logoMAG" fitHeight="85.0" fitWidth="89.0" layoutX="2.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="34.0" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="8.0">
                                        <image>
                                           <Image url="@images/MAG_News_Verification_logo.png" />
                                        </image>
                                     </ImageView>
-                                    <Text id="description" fx:id="textDescriptionMAGInOtherInformation" layoutX="98.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MAG News Verification is a web browser that helps users recognize real news from fake news from most news websites, through a percentage of truthfulness, shown in various representations to the right of the browser view. In addition, the web browser offers the ability to scrap the web page the user is viewing and filter the selectors that make it up." wrappingWidth="463.471435546875" />
+                                    <Text id="description" fx:id="textDescriptionMAGInOtherInformation" layoutX="89.0" layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MAG News Verification is a web browser that helps users recognize real news from fake news from most news websites, through a percentage of truthfulness, shown in various representations to the right of the browser view. In addition, the web browser offers the ability to scrap the web page the user is viewing and filter the selectors that make it up." wrappingWidth="421.15576171875" />
                                     <Text id="descriptionContactUs" fx:id="textContactUsInOtherInformation" layoutX="99.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="If you have any questions, please contact us." wrappingWidth="248.662109375" />
                                     <ImageView fx:id="messageIcon" fitHeight="43.0" fitWidth="48.0" layoutX="347.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -258,8 +259,8 @@
                           <content>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="123.0" prefWidth="511.0" style="-fx-background-color: bdbebd;">
                                  <children>
-                                    <Text layoutX="4.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The MAG platform is proposed as an experimental project in the field of automatic fake news detection. You are not allowed to use our browser for legitimate, illegal or unauthorized purposes, including, but not limited to, in violation of any intellectual property or privacy laws. The code is available for future development only at the following link: " wrappingWidth="506.958984375" />
-                                    <ImageView fitHeight="70.0" fitWidth="60.0" layoutX="505.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                                    <Text layoutX="4.0" layoutY="14.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The MAG platform is proposed as an experimental project in the field of automatic fake news detection. You are not allowed to use our browser for legitimate, illegal or unauthorized purposes, including, but not limited to, in violation of any intellectual property or privacy laws. The code is available for future development only at the following link: " wrappingWidth="448.77490234375" />
+                                    <ImageView fitHeight="70.0" fitWidth="60.0" layoutX="453.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@images/privacyPolicy.png" />
                                        </image>
