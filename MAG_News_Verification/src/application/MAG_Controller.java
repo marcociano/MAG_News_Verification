@@ -8,7 +8,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicInteger;
-
 import javafx.animation.TranslateTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,11 +19,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -77,23 +75,27 @@ public class MAG_Controller implements Initializable{
     private WebHistory history;
     private String homepage= "https://github.com/marcociano/MAG_News_Verification";
     public String statment, prediction;
+    private Integer index = 1;
+ 
     
     @FXML
     private LineChart<Integer, Integer> lineChart;
+    private XYChart.Series<Integer, Integer> dataSeries;
     
     @FXML
-    private CategoryAxis x;
+    private NumberAxis x;
+      
 
     @FXML
     private NumberAxis y;
-    
+  
     
     /**
       Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-    	slider.setTranslateX(600);
+    	slider.setTranslateX(610);
     	menu.setOnMouseClicked(event -> {
     		TranslateTransition slide = new TranslateTransition();
     		slide.setDuration(Duration.seconds(0.4));
@@ -101,7 +103,7 @@ public class MAG_Controller implements Initializable{
     		slide.setToX(0);
     		slide.play();
     		
-    		slider.setTranslateX(600);
+    		slider.setTranslateX(610);
     		slide.setOnFinished((ActionEvent e) -> {
     			menu.setVisible(false);
     			menuBack.setVisible(true);
@@ -111,7 +113,7 @@ public class MAG_Controller implements Initializable{
     		TranslateTransition slide = new TranslateTransition();
     		slide.setDuration(Duration.seconds(0.4));
     		slide.setNode(slider);
-    		slide.setToX(600);
+    		slide.setToX(610);
     		slide.play();
     		
     		slider.setTranslateX(0);
@@ -128,6 +130,12 @@ public class MAG_Controller implements Initializable{
     	trustworthiness.setCellValueFactory(new PropertyValueFactory<>("Trustworthiness"));
     	prediction_percentage.setCellValueFactory(new PropertyValueFactory<>("PredictionPercentage"));
     	tableView.setItems(getNewsList());
+    	x.setTickUnit(1);
+    	x.setAutoRanging(false);
+    	x.setLowerBound(0);
+    	x.setUpperBound(20);
+    	dataSeries = new XYChart.Series<>();
+    	dataSeries.setName("Andamento"); // Imposta il nome della serie
     	
     }
 
@@ -272,7 +280,8 @@ public class MAG_Controller implements Initializable{
     		    	engine.setUserStyleSheetLocation(getClass().getResource("/stylesheet/highlighted_text_notFakeNews.css").toString());
     			else if(subOutputFalse.equals("False"))
     				engine.setUserStyleSheetLocation(getClass().getResource("/stylesheet/highlighted_text_FakeNews.css").toString());
-            	
+    			String scoreNews = prediction.substring(2, 4);
+    	    	int prog_stats= Integer.valueOf(scoreNews);
     			
     			News news= new News();
             	news.setId(getNextCountValue());
@@ -284,8 +293,16 @@ public class MAG_Controller implements Initializable{
             	/*Graph that monitors news trends. 
             	 * There are two lines: one indicates the percentage of fake news found and the other is used to track the overall page trend i.e., 
             	 * it takes only two values to indicate whether the news is fake or not.*/
+                //String indice = String.valueOf(index);
                 
-               
+                dataSeries.getData().add(new XYChart.Data<>(index, prog_stats));
+                if(index == 1)
+                	lineChart.getData().add(dataSeries);
+                 index= index +1;
+                
+                 if(index >= 20) {
+                	 x.setAutoRanging(true);
+                 }
     		}
     		
     		conn.disconnect();
@@ -301,6 +318,8 @@ public class MAG_Controller implements Initializable{
 		return count.incrementAndGet();
 	}
 
+	
+
 	ObservableList<News> getNewsList(){
 		ObservableList<News> observableList = FXCollections.observableArrayList();
 			return observableList;
@@ -309,6 +328,16 @@ public class MAG_Controller implements Initializable{
       
     @FXML
     private void viewSummary(ActionEvent event) throws IOException{
+    	System.out.println(prediction);
+    	if(prediction == null) {
+    		String title= "The report doesn't contain any information";
+    		TrayNotification tray = new TrayNotification();
+    		AnimationType type= AnimationType.POPUP;
+    		tray.setAnimationType(type);
+    		tray.setTitle(title);
+    		tray.setNotificationType(NotificationType.ERROR);
+    		tray.showAndDismiss(Duration.seconds(5));
+    	}else {
     	FXMLLoader loader = new FXMLLoader(getClass().getResource("/SummaryView.fxml"));  
     	Parent root= loader.load();
     	Summary_Controller summary_controller=loader.getController();
@@ -318,10 +347,8 @@ public class MAG_Controller implements Initializable{
     	stage.setTitle("Summary Page");
     	stage.setResizable(false);
     	stage.show();
+    	}
+    	
     }
-    
-    
-   
-  
-    
+       
 }

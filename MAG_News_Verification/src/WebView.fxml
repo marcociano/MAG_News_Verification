@@ -146,9 +146,9 @@
                     </columns>
                   </TableView>
                   <StackPane prefHeight="215.0" prefWidth="544.0" />
-                  <LineChart fx:id="lineChart" prefHeight="372.0" prefWidth="523.0" style="-fx-background-color: white;" title="News trend">
+                  <LineChart fx:id="lineChart" prefHeight="406.0" prefWidth="523.0" style="-fx-background-color: white;" title="News trend">
                     <xAxis>
-                      <CategoryAxis side="BOTTOM" fx:id="x" />
+                      <NumberAxis side="BOTTOM" fx:id="x" />
                     </xAxis>
                     <yAxis>
                       <NumberAxis fx:id="y" side="LEFT" />
