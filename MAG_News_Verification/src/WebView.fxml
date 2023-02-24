@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
@@ -8,13 +7,11 @@
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
-<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -23,7 +20,6 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
-<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.web.WebView?>
 
@@ -31,11 +27,11 @@
    <children>
       <BorderPane layoutY="-2.0" maxHeight="1082.0" maxWidth="1920.0" minHeight="804.0" minWidth="887.0" prefHeight="813.0" prefWidth="1484.0">
          <top>
-            <HBox prefHeight="98.0" prefWidth="1484.0">
+            <HBox prefHeight="90.0" prefWidth="1484.0">
                <children>
-                  <AnchorPane maxHeight="1080.0" maxWidth="1920.0" minHeight="0.0" minWidth="600.0" prefHeight="98.0" prefWidth="1493.0" style="-fx-background-color: #2d7c86#2d7c86;">
+                  <AnchorPane maxHeight="1080.0" maxWidth="1920.0" minHeight="0.0" minWidth="600.0" prefHeight="83.0" prefWidth="1484.0" style="-fx-background-color: #2d7c86#2d7c86;">
                      <children>
-                        <ImageView fitHeight="96.0" fitWidth="109.0" layoutX="1.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="88.0" fitWidth="101.0" layoutX="1.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@/images/MAG_News_Verification_logo.png" />
                            </image>
@@ -83,7 +79,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <ProgressBar fx:id="progress" layoutX="116.0" layoutY="82.0" prefHeight="6.0" prefWidth="1130.0" progress="0.0" AnchorPane.leftAnchor="116.0" AnchorPane.rightAnchor="238.0" />
+                        <ProgressBar fx:id="progress" layoutX="116.0" layoutY="76.0" prefHeight="6.0" prefWidth="1130.0" progress="0.0" AnchorPane.leftAnchor="116.0" AnchorPane.rightAnchor="238.0" />
                         <TextField fx:id="txtFieldUrl" layoutX="291.0" layoutY="53.0" onKeyPressed="#txtEnterKey" prefHeight="26.0" prefWidth="769.0" style="-fx-background-radius: 1000;" translateY="-15.0" AnchorPane.leftAnchor="291.0" AnchorPane.rightAnchor="423.0" />
                         <Button fx:id="cronoHistory" layoutX="1206.0" layoutY="49.0" mnemonicParsing="false" onAction="#historyPages" prefHeight="32.0" prefWidth="32.0" style="-fx-background-radius: 1000;" translateY="-15.0">
                            <graphic>
@@ -131,7 +127,7 @@
             <WebView fx:id="webview" maxHeight="1080.0" maxWidth="1920.0" minHeight="400.0" minWidth="600.0" prefHeight="715.0" prefWidth="1483.0" AnchorPane.bottomAnchor="35.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="30.0" BorderPane.alignment="CENTER" />
          </center>
       </BorderPane>
-      <AnchorPane fx:id="slider" layoutX="941.0" layoutY="96.0" prefHeight="720.0" prefWidth="543.0" style="-fx-background-color: #2d7c86#2d7c86;">
+      <AnchorPane fx:id="slider" layoutX="941.0" layoutY="88.0" prefHeight="728.0" prefWidth="543.0" style="-fx-background-color: #2d7c86#2d7c86;">
          <children>
             <VBox layoutX="11.0" prefHeight="705.0" prefWidth="523.0">
                <children>
@@ -165,53 +161,26 @@
                   </StackPane>
                   <TabPane prefHeight="338.0" prefWidth="223.0" tabClosingPolicy="UNAVAILABLE">
                     <tabs>
-                      <Tab fx:id="tabPane" text="Statistic">
-                        <content>
-                          <AnchorPane fx:id="statisticTab" minHeight="0.0" minWidth="0.0" prefHeight="127.0" prefWidth="467.0" style="-fx-background-color: e9e9e9;">
+                        <Tab fx:id="otherTab" text="Other information">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="141.0" prefWidth="619.0" style="-fx-background-color: bdbebd;">
                                  <children>
-                                    <AnchorPane layoutX="14.0" layoutY="-7.0" prefHeight="158.0" prefWidth="473.0" style="-fx-background-color: d3d3d3; -fx-background-radius: 0; -fx-border-color: d3d3d3; -fx-border-radius: 0;">
-                                       <children>
-                                          <AnchorPane layoutX="43.0" layoutY="17.0" prefHeight="111.0" prefWidth="237.0" style="-fx-background-color: bdbebd; -fx-background-radius: 0; -fx-border-color: d3d3d3; -fx-border-radius: 0;">
-                                             <children>
-                                                <AnchorPane layoutX="119.0" layoutY="46.0" prefHeight="55.0" prefWidth="108.0" style="-fx-background-color: f7f7f7;">
-                                                   <children>
-                                                      <Text layoutX="7.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To be ticked off " wrappingWidth="94.0" />
-                                                   </children>
-                                                </AnchorPane>
-                                                <Text layoutX="72.0" layoutY="14.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Basic stats" wrappingWidth="63.0">
-                                                   <font>
-                                                      <Font size="13.0" />
-                                                   </font>
-                                                </Text>
-                                                <RadioButton layoutX="14.0" layoutY="24.0" mnemonicParsing="false" text="Minimum">
-                                                   <toggleGroup>
-                                                      <ToggleGroup fx:id="stats" />
-                                                   </toggleGroup>
-                                                </RadioButton>
-                                                <RadioButton layoutX="14.0" layoutY="53.0" mnemonicParsing="false" text="Mean" toggleGroup="$stats" />
-                                                <RadioButton layoutX="13.0" layoutY="83.0" mnemonicParsing="false" text="Maximum" toggleGroup="$stats" />
-                                                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="193.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
-                                                   <image>
-                                                      <Image url="@images/tick.png" />
-                                                   </image>
-                                                </ImageView>
-                                             </children>
-                                          </AnchorPane>
-                                          <Text layoutX="-8.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Statistic" AnchorPane.topAnchor="13.0" />
-                                          <BarChart layoutX="291.0" layoutY="5.0" prefHeight="150.0" prefWidth="214.0">
-                                            <xAxis>
-                                              <CategoryAxis prefHeight="22.0" prefWidth="195.0" side="BOTTOM" />
-                                            </xAxis>
-                                            <yAxis>
-                                              <NumberAxis side="LEFT" />
-                                            </yAxis>
-                                          </BarChart>
-                                       </children>
-                                    </AnchorPane>
+                                    <ImageView fx:id="logoMAG" fitHeight="85.0" fitWidth="89.0" layoutX="2.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="34.0" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="8.0">
+                                       <image>
+                                          <Image url="@images/MAG_News_Verification_logo.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Text id="description" fx:id="textDescriptionMAGInOtherInformation" layoutX="89.0" layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MAG News Verification is a web browser that helps users recognize real news from fake news from most news websites, through a percentage of truthfulness, shown in various representations to the right of the browser view. In addition, the web browser offers the ability to scrap the web page the user is viewing and filter the selectors that make it up." wrappingWidth="421.15576171875" />
+                                    <Text id="descriptionContactUs" fx:id="textContactUsInOtherInformation" layoutX="89.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="If you have any questions, please contact us." wrappingWidth="248.662109375" />
+                                    <ImageView fx:id="messageIcon" fitHeight="59.0" fitWidth="65.0" layoutX="357.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@images/messaggio.png" />
+                                       </image>
+                                    </ImageView>
                                  </children>
                               </AnchorPane>
-                        </content>
-                      </Tab>
+                          </content>
+                        </Tab>
                       <Tab text="Highlight options">
                         <content>
                           <AnchorPane fx:id="highlightTab" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: d3d3d3;">
@@ -235,26 +204,6 @@
                               </AnchorPane>
                         </content>
                       </Tab>
-                        <Tab fx:id="otherTab" text="Other information">
-                          <content>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="141.0" prefWidth="619.0" style="-fx-background-color: bdbebd;">
-                                 <children>
-                                    <ImageView fx:id="logoMAG" fitHeight="85.0" fitWidth="89.0" layoutX="2.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="34.0" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="8.0">
-                                       <image>
-                                          <Image url="@images/MAG_News_Verification_logo.png" />
-                                       </image>
-                                    </ImageView>
-                                    <Text id="description" fx:id="textDescriptionMAGInOtherInformation" layoutX="89.0" layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MAG News Verification is a web browser that helps users recognize real news from fake news from most news websites, through a percentage of truthfulness, shown in various representations to the right of the browser view. In addition, the web browser offers the ability to scrap the web page the user is viewing and filter the selectors that make it up." wrappingWidth="421.15576171875" />
-                                    <Text id="descriptionContactUs" fx:id="textContactUsInOtherInformation" layoutX="99.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="If you have any questions, please contact us." wrappingWidth="248.662109375" />
-                                    <ImageView fx:id="messageIcon" fitHeight="43.0" fitWidth="48.0" layoutX="347.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@images/messaggio.png" />
-                                       </image>
-                                    </ImageView>
-                                 </children>
-                              </AnchorPane>
-                          </content>
-                        </Tab>
                         <Tab text="Terms of use">
                           <content>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="123.0" prefWidth="511.0" style="-fx-background-color: bdbebd;">
