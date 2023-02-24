@@ -74,9 +74,9 @@ public class MAG_Controller implements Initializable{
     private static final AtomicInteger count = new AtomicInteger(0);
     private WebHistory history;
     private String homepage= "https://github.com/marcociano/MAG_News_Verification";
-    public String statment, prediction;
+    public String statment, prediction, scoreNews;;
     private Integer index = 1;
- 
+    private int prog_stats;
     
     @FXML
     private LineChart<Integer, Integer> lineChart;
@@ -133,7 +133,9 @@ public class MAG_Controller implements Initializable{
     	x.setTickUnit(1);
     	x.setAutoRanging(false);
     	x.setLowerBound(0);
+    	y.setLowerBound(0);
     	x.setUpperBound(20);
+    	y.setUpperBound(1);
     	dataSeries = new XYChart.Series<>();
     	dataSeries.setName("Andamento"); // Imposta il nome della serie
     	
@@ -280,9 +282,7 @@ public class MAG_Controller implements Initializable{
     		    	engine.setUserStyleSheetLocation(getClass().getResource("/stylesheet/highlighted_text_notFakeNews.css").toString());
     			else if(subOutputFalse.equals("False"))
     				engine.setUserStyleSheetLocation(getClass().getResource("/stylesheet/highlighted_text_FakeNews.css").toString());
-    			String scoreNews = prediction.substring(2, 4);
-    	    	int prog_stats= Integer.valueOf(scoreNews);
-    			
+ 			
     			News news= new News();
             	news.setId(getNextCountValue());
                 news.setTextArticle(txtFieldUrl.getText());
@@ -293,16 +293,27 @@ public class MAG_Controller implements Initializable{
             	/*Graph that monitors news trends. 
             	 * There are two lines: one indicates the percentage of fake news found and the other is used to track the overall page trend i.e., 
             	 * it takes only two values to indicate whether the news is fake or not.*/
-                //String indice = String.valueOf(index);
+                if(subOutputTrue.equals("True")) {
+   				 scoreNews = prediction.substring(2, 3);
+   				 prog_stats= Integer.valueOf(scoreNews);
+   				 System.out.println(prog_stats);
+                }
                 
+                else if(subOutputFalse.equals("False")) {
+                	scoreNews = prediction.substring(3, 4);
+                	prog_stats= Integer.valueOf(scoreNews);
+                	System.out.println(prog_stats);
+                }
+              
                 dataSeries.getData().add(new XYChart.Data<>(index, prog_stats));
                 if(index == 1)
                 	lineChart.getData().add(dataSeries);
-                 index= index +1;
+                index= index +1;
                 
-                 if(index >= 20) {
-                	 x.setAutoRanging(true);
-                 }
+                if(index >= 20) {
+                	x.setAutoRanging(true);
+                }
+
     		}
     		
     		conn.disconnect();
