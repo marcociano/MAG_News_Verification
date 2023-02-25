@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -40,10 +41,6 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <Button fx:id="saveInformationButton" layoutX="463.0" layoutY="353.0" mnemonicParsing="false" onAction="#downloadSummary" prefHeight="30.0" prefWidth="131.0" style="-fx-background-color: #dbac00; -fx-background-radius: 100;" text="Save information">
-         <font>
-            <Font size="14.0" />
-         </font></Button>
       <Button layoutX="34.0" layoutY="353.0" mnemonicParsing="false" onAction="#reportPage" style="-fx-background-color: #dbac00; -fx-background-radius: 100;" text="Report page">
          <font>
             <Font size="14.0" />
@@ -61,10 +58,6 @@
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="7.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
          <image>
          <Image url="@images/MAG_News_Verification_logo.png" /> 
-         </image></ImageView>
-      <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="491.0" layoutY="274.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images/scarica.png" />
          </image></ImageView>
    </children>
    <effect>

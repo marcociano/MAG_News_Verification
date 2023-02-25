@@ -8,6 +8,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicInteger;
+
+import com.itextpdf.text.DocumentException;
+
 import javafx.animation.TranslateTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -55,15 +58,15 @@ public class MAG_Controller implements Initializable{
     @FXML
     private Button cronoHistory;
     @FXML
-    private TableView<News> tableView;
+    public TableView<News> tableView;
     @FXML
-    private TableColumn<News, Integer> id;
+    public TableColumn<News, Integer> id;
     @FXML
-    private TableColumn<News, String> textArticle;
+    public TableColumn<News, String> textArticle;
     @FXML
-    private TableColumn<News, String> trustworthiness;
+    public TableColumn<News, String> trustworthiness;
     @FXML
-    private TableColumn<News, String> prediction_percentage;
+    public TableColumn<News, String> prediction_percentage;
     @FXML
     private ImageView menu;
     @FXML
@@ -72,9 +75,10 @@ public class MAG_Controller implements Initializable{
     private AnchorPane slider;
     private WebEngine engine;
     private static final AtomicInteger count = new AtomicInteger(0);
+    public static final String DEST = "./reportSummary.pdf";
     private WebHistory history;
     private String homepage= "https://github.com/marcociano/MAG_News_Verification";
-    public String statment, prediction, scoreNews;;
+    public String statment, prediction, scoreNews;
     private Integer index = 1;
     private int prog_stats;
     
@@ -85,11 +89,9 @@ public class MAG_Controller implements Initializable{
     @FXML
     private NumberAxis x;
       
-
     @FXML
     private NumberAxis y;
   
-    
     /**
       Initializes the controller class.
      */
@@ -289,20 +291,21 @@ public class MAG_Controller implements Initializable{
                 news.setTrustworthiness(statment);
                 news.setPredictionPercentage(prediction);
                 tableView.getItems().add(news);
+                
             	
             	/*Graph that monitors news trends. 
             	 * There are two lines: one indicates the percentage of fake news found and the other is used to track the overall page trend i.e., 
             	 * it takes only two values to indicate whether the news is fake or not.*/
                 if(subOutputTrue.equals("True")) {
-   				 scoreNews = prediction.substring(2, 3);
-   				 prog_stats= Integer.valueOf(scoreNews);
-   				 System.out.println(prog_stats);
+   				 	scoreNews = prediction.substring(2, 3);
+   				 	prog_stats= Integer.valueOf(scoreNews);
+   				
                 }
                 
                 else if(subOutputFalse.equals("False")) {
                 	scoreNews = prediction.substring(3, 4);
                 	prog_stats= Integer.valueOf(scoreNews);
-                	System.out.println(prog_stats);
+                	
                 }
               
                 dataSeries.getData().add(new XYChart.Data<>(index, prog_stats));
@@ -329,7 +332,6 @@ public class MAG_Controller implements Initializable{
 		return count.incrementAndGet();
 	}
 
-	
 
 	ObservableList<News> getNewsList(){
 		ObservableList<News> observableList = FXCollections.observableArrayList();
@@ -338,8 +340,7 @@ public class MAG_Controller implements Initializable{
 
       
     @FXML
-    private void viewSummary(ActionEvent event) throws IOException{
-    	System.out.println(prediction);
+    private void viewSummary(ActionEvent event) throws IOException, DocumentException{
     	if(prediction == null) {
     		String title= "The report doesn't contain any information";
     		TrayNotification tray = new TrayNotification();
@@ -352,7 +353,8 @@ public class MAG_Controller implements Initializable{
     	FXMLLoader loader = new FXMLLoader(getClass().getResource("/SummaryView.fxml"));  
     	Parent root= loader.load();
     	Summary_Controller summary_controller=loader.getController();
-    	summary_controller.showScore(prediction);
+    	summary_controller.showScore(statment, prediction);
+    	summary_controller.createPdf(tableView, DEST);
     	Stage stage= new Stage();
     	stage.setScene(new Scene(root));
     	stage.setTitle("Summary Page");
