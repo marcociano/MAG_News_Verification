@@ -36,7 +36,7 @@
          </children>
       </AnchorPane>
       <Accordion layoutX="75.0" layoutY="80.0" />
-      <Label fx:id="label2" layoutX="214.0" layoutY="50.0" text="The analyzed page contains:" textFill="WHITE">
+      <Label fx:id="label2" layoutX="214.0" layoutY="50.0" text="The last analyzed page contains:" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>
