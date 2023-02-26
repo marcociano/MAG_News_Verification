@@ -1,6 +1,7 @@
 package application;
 
 import static com.itextpdf.text.Element.ALIGN_CENTER;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -9,12 +10,13 @@ import java.util.concurrent.atomic.AtomicInteger;
 import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.Image;
 import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
-import com.itextpdf.text.pdf.PdfContentByte;
+import com.itextpdf.text.pdf.ColumnText;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
@@ -44,6 +46,10 @@ public class Summary_Controller {
 	private String scoreNews, progress_Score;
 	public TableView<News> tableView;
 	public Integer id=1;
+	float width = PageSize.A4.getWidth();
+	float height = PageSize.A4.getHeight();
+	float x = 0;
+	float y = 0;
 	
 	@FXML
 	private Text score;
@@ -52,6 +58,7 @@ public class Summary_Controller {
 	/*Destination Path to save the pdf*/
 	
 	public static final String DEST = "./reportSummary.pdf";
+
     public static final String WALLPAPER = "./src/images/wallpaperPDF.jpg";
     public static final String LOGODIPARTIMENTO = "./src/images/logoDipartimento.png";
     public static final String LOGOMAG="./src/images/MAG_News_Verification_logo.png";
@@ -121,19 +128,25 @@ public class Summary_Controller {
 	/*With regard to handling file information, having 
 	 dealing with files I enter IOException and DocumentException*/
 	
-	public void createPdf(TableView<News> tableView, String dest) throws IOException, DocumentException {
+	public void createPdf(TableView<News> tableView, String dest) throws IOException, DocumentException  {
 	
 		/*I set the size of the pdf ad A4*/
 		Document document = new Document(PageSize.A4);
-        PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(DEST));
-        document.open();
-       
-        
-        PdfContentByte canvas = writer.getDirectContentUnder();
-        Image image = Image.getInstance(WALLPAPER);
-        image.scaleAbsolute(PageSize.A4);
-        image.setAbsolutePosition(0, 0);
-        canvas.addImage(image);
+		PdfWriter writer =  PdfWriter.getInstance(document, new FileOutputStream(DEST));
+		
+		document.open();
+		
+		
+		int numPages = writer.getPageNumber();
+		
+		if(numPages > 0) {
+	
+			Image image = Image.getInstance(WALLPAPER);
+			image.scaleAbsolute(PageSize.A4);
+			image.setAbsolutePosition(0, 0);
+			document.add(image);
+		}
+		
         
         Paragraph header = new Paragraph();
         header.add(new Chunk("MAG News Verification Report", new Font(Font.FontFamily.HELVETICA, 25)));
@@ -180,47 +193,16 @@ public class Summary_Controller {
         
         document.add(dip);
         
+        Chunk c4 = new Chunk("Università degli studi di Salerno, Via Papa Giovanni Paolo II, 132, 84084 Fisciano SA");
+        c4.setLocalDestination("footer");
+        ColumnText.showTextAligned(writer.getDirectContent(),
+                Element.ALIGN_CENTER,
+                new Paragraph(c4),
+                document.right() - 250,
+                document.bottom(),
+                0);
        
-        
-   
-        /*Management of the first paragraph*/
-       /* 
-        document.add( Chunk.NEWLINE );
-        
-        Font font1 = new Font(FontFamily.TIMES_ROMAN, 30.0f, Font.BOLD, BaseColor.BLACK);
-        Chunk c1 = new Chunk("MAG News Verification report!", font1);
-        Paragraph para1 = new Paragraph(c1);
-        
-        para1.setAlignment(ALIGN_CENTER);        
-        document.add(para1); 
-        document.add( Chunk.NEWLINE );
-        */
-        /*MAG logo insertion management*/
-        /*
-        Image imgs=Image.getInstance(LOGOMAG);
-        imgs.setAbsolutePosition(75, 350);
-        imgs.scaleAbsolute(250, 250);
-        
-        document.add(imgs);
-         */
-        /*Management of the second paragraph*/
-        /*
-        document.add( Chunk.NEWLINE );
-        document.add( Chunk.NEWLINE );
-        document.add( Chunk.NEWLINE );
-        document.add( Chunk.NEWLINE );
-        document.add( Chunk.NEWLINE );
-        document.add( Chunk.NEWLINE );
-       
-        Font font2 = new Font(FontFamily.TIMES_ROMAN, 20.0f, Font.BOLD, BaseColor.BLACK); 
-        Chunk c2 = new Chunk("The page analyzed is: " + trustworthiness, font2);       
-        Paragraph para2 = new Paragraph(c2);
-        
-        para2.setAlignment(ALIGN_CENTER);
-        
-        document.add(para2);
-        */
-        /*Management of the third paragraph*/
+  
         /*
         document.add( Chunk.NEWLINE );
         
@@ -238,18 +220,11 @@ public class Summary_Controller {
 		*/
         /*Management of the fourth paragraph*/
         /*
-        Font font4 = new Font(FontFamily.TIMES_ROMAN, 10.0f, Font.BOLD, BaseColor.BLACK);
         
-        Chunk c4 = new Chunk("Università degli studi di Salerno, Via Papa Giovanni Paolo II, 132, 84084 Fisciano SA" , font4);
-        
-        
-        Paragraph para4 = new Paragraph(c4);
-        
-        para4.setAlignment(ALIGN_CENTER);
-        document.add(para4);
        
         */
          document.close();
+         writer.close();
         /*Once the pdf is saved you will see the message that it was saved*/
         
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -271,8 +246,6 @@ public class Summary_Controller {
     	File file= new File(DEST);
 		file.getParentFile().mkdirs();
     }
-
-
 	
 }
 
