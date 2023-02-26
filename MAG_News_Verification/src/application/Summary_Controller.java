@@ -145,7 +145,6 @@ public class Summary_Controller {
         logo.setAlignment(ALIGN_CENTER);
         logo.scaleToFit(200, 200); // Impostazione delle dimensioni dell'immagine
         document.add(logo);
-        
         document.add(Chunk.NEWLINE);
   
         PdfPTable table = new PdfPTable(4); // Creazione della tabella con 3 colonne
