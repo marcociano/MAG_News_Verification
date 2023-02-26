@@ -15,7 +15,7 @@ Finally, it will also be possible to make a report that will allow you to become
 3. Once you get the page view click on the "Scraping page" button.<br>
 4. Next, press the News Detection button to start the server. <br>
 5. Display the results obtained. <br>
-6. If you wish to have a summary of the analysis click on "View summary".<br>From here you will have the ability to report that a crime is behind a news story via the "Report" button, and you can also download the report with the "Save information" button."<br> </p>
+6. If you wish to have a summary of the analysis click on "View summary".<br>From here you will have the ability to report that a crime is behind a news story via the "Report" button, and you can also download the report in PDF containing the data of chrono history web sites."<br> </p>
 
 
 ## Prerequisites
