@@ -43,6 +43,7 @@ public class Summary_Controller {
 	private String subOutputTrue, subOutputFalse;
 	private String scoreNews, progress_Score;
 	public TableView<News> tableView;
+	public Integer id=1;
 	
 	@FXML
 	private Text score;
@@ -151,23 +152,23 @@ public class Summary_Controller {
         table.setWidthPercentage(100); // Impostazione della larghezza della tabella al 100% della pagina
 
         PdfPCell header1 = new PdfPCell(new Phrase("#")); // Creazione della cella dell'intestazione della colonna 1
-        table.addCell(header1);
+        table.addCell(header1).setHorizontalAlignment(ALIGN_CENTER);
 
-        PdfPCell header2 = new PdfPCell(new Phrase("Url Text")); // Creazione della cella dell'intestazione della colonna 2
-        table.addCell(header2);
+        PdfPCell header2 = new PdfPCell(new Phrase("Url Text"));; // Creazione della cella dell'intestazione della colonna 2
+        table.addCell(header2).setHorizontalAlignment(ALIGN_CENTER);
 
         PdfPCell header3 = new PdfPCell(new Phrase("Trustworthiness")); // Creazione della cella dell'intestazione della colonna 3
-        table.addCell(header3);
+        table.addCell(header3).setHorizontalAlignment(ALIGN_CENTER);
         
         PdfPCell header4 = new PdfPCell(new Phrase("Accuracy %")); // Creazione della cella dell'intestazione della colonna 3
-        table.addCell(header4);
+        table.addCell(header4).setHorizontalAlignment(ALIGN_CENTER);
         
         ObservableList<News> data = tableView.getItems();
         for (News news : data) {
-            table.addCell(new PdfPCell(new Phrase(getNextCountValue())));
-            table.addCell(new PdfPCell(new Phrase(news.getTextArticle())));
-            table.addCell(new PdfPCell(new Phrase(news.getTrustworthiness())));
-            table.addCell(new PdfPCell(new Phrase(news.getPredictionPercentage())));
+            table.addCell(new PdfPCell(new Phrase(String.valueOf(count.incrementAndGet())))).setHorizontalAlignment(ALIGN_CENTER);
+            table.addCell(new PdfPCell(new Phrase(news.getTextArticle()))).setHorizontalAlignment(ALIGN_CENTER);
+            table.addCell(new PdfPCell(new Phrase(news.getTrustworthiness()))).setHorizontalAlignment(ALIGN_CENTER);
+            table.addCell(new PdfPCell(new Phrase(news.getPredictionPercentage()))).setHorizontalAlignment(ALIGN_CENTER);
         }
         document.add(table);
         
