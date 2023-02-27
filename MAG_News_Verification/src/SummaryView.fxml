@@ -41,7 +41,7 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <Button layoutX="34.0" layoutY="353.0" mnemonicParsing="false" onAction="#reportPage" style="-fx-background-color: #dbac00; -fx-background-radius: 100;" text="Report page">
+      <Button id="reportPageButton" fx:id="reportPageButton" layoutX="34.0" layoutY="353.0" mnemonicParsing="false" onAction="#reportPage" style="-fx-background-color: #dbac00; -fx-background-radius: 100;" text="Report page">
          <font>
             <Font size="14.0" />
          </font></Button>

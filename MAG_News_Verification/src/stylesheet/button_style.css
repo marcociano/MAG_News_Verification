@@ -1,0 +1,64 @@
+
+#viewSummaryButton:hover {
+  -fx-background-color: #dbac00; 
+  -fx-text-fill: #ffffff; 
+
+}
+#viewSummaryButton:pressed {
+  -fx-background-color: #8a6c01; 
+  -fx-text-fill: #ffffff; 
+  -fx-scale-x: 0.90;
+  -fx-scale-y: 0.90;
+}
+
+#detectionButton:hover {
+  -fx-background-color: #dbac00; 
+  -fx-text-fill: #ffffff; 
+
+}
+
+#detectionButton:pressed {
+  -fx-background-color: #8a6c01; 
+  -fx-text-fill: #ffffff; 
+  -fx-scale-x: 0.90;
+  -fx-scale-y: 0.90;
+}
+
+#scrapingButton:hover {
+  -fx-background-color: #dbac00; 
+  -fx-text-fill: #ffffff;
+
+}
+
+#scrapingButton:pressed {
+  -fx-background-color: #8a6c01; 
+  -fx-text-fill: #ffffff;
+  -fx-scale-x: 0.90;
+  -fx-scale-y: 0.90;
+}
+
+#fetchButton:hover {
+  -fx-background-color: #dbac00; 
+  -fx-text-fill: #ffffff;
+
+}
+
+#fetchButton:pressed {
+  -fx-background-color: #8a6c01; 
+  -fx-text-fill: #ffffff;
+  -fx-scale-x: 0.90;
+  -fx-scale-y: 0.90;
+}
+
+#reportPageButton:hover {
+  -fx-background-color: #dbac00; 
+  -fx-text-fill: #ffffff;
+
+}
+
+#reportPageButton:pressed {
+  -fx-background-color: #8a6c01; 
+  -fx-text-fill: #ffffff;
+  -fx-scale-x: 0.90;
+  -fx-scale-y: 0.90;
+}

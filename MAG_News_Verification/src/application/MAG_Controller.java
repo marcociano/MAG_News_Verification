@@ -8,9 +8,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicInteger;
-
 import com.itextpdf.text.DocumentException;
-
 import javafx.animation.TranslateTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -26,16 +24,19 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuButton;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebHistory;
 import javafx.scene.web.WebView;
@@ -56,8 +57,6 @@ public class MAG_Controller implements Initializable{
     @FXML
     private Button searchPage;
     @FXML
-    private Button cronoHistory;
-    @FXML
     public TableView<News> tableView;
     @FXML
     public TableColumn<News, Integer> id;
@@ -73,6 +72,9 @@ public class MAG_Controller implements Initializable{
     private ImageView menuBack;
     @FXML
     private AnchorPane slider;
+    @FXML
+    private MenuButton cronoHistory;
+    
     private WebEngine engine;
     private static final AtomicInteger count = new AtomicInteger(0);
     public static final String DEST = "./reportSummary.pdf";
@@ -104,7 +106,12 @@ public class MAG_Controller implements Initializable{
     		slide.setNode(slider);
     		slide.setToX(0);
     		slide.play();
-    		
+    		DropShadow shadow = new DropShadow();
+    		shadow.setColor(Color.BLACK);
+    		shadow.setOffsetX(0);
+    		shadow.setOffsetY(50);
+    		shadow.setRadius(10);
+    		slider.setEffect(shadow);
     		slider.setTranslateX(610);
     		slide.setOnFinished((ActionEvent e) -> {
     			menu.setVisible(false);
@@ -117,7 +124,12 @@ public class MAG_Controller implements Initializable{
     		slide.setNode(slider);
     		slide.setToX(610);
     		slide.play();
-    		
+    		DropShadow shadow = new DropShadow();
+    		shadow.setColor(Color.BLACK);
+    		shadow.setOffsetX(0);
+    		shadow.setOffsetY(50);
+    		shadow.setRadius(10);
+    		slider.setEffect(shadow);
     		slider.setTranslateX(0);
     		slide.setOnFinished((ActionEvent e) -> {
     			menu.setVisible(true);
@@ -207,14 +219,6 @@ public class MAG_Controller implements Initializable{
         engine.load(homepage);
     }
     
-    @FXML
-    private void historyPages(ActionEvent event) {
-    	 history = webview.getEngine().getHistory();
-         ObservableList<WebHistory.Entry> entries = history.getEntries();
-         for(WebHistory.Entry entry : entries) {
-         	System.out.println(entry);
-         }
-    }
 
     @FXML
     private void txtEnterKey(KeyEvent event) {

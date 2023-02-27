@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
@@ -52,7 +51,7 @@
                                  </image>
                               </ImageView>
                            </graphic></Button>
-                        <Button layoutX="255.0" layoutY="47.0" mnemonicParsing="false" onAction="#homepage" prefHeight="34.0" prefWidth="34.0" style="-fx-background-color: #dbac00#dbac00 #dbac00#dbac00; -fx-background-radius: 100;" text="" translateY="-15.0">
+                        <Button layoutX="254.0" layoutY="49.0" mnemonicParsing="false" onAction="#homepage" prefHeight="34.0" prefWidth="34.0" style="-fx-background-color: #dbac00#dbac00 #dbac00#dbac00; -fx-background-radius: 100;" text="" translateY="-15.0">
                            <graphic>
                               <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -81,15 +80,6 @@
                         </Button>
                         <ProgressBar fx:id="progress" layoutX="116.0" layoutY="76.0" prefHeight="6.0" prefWidth="1130.0" progress="0.0" AnchorPane.leftAnchor="116.0" AnchorPane.rightAnchor="238.0" />
                         <TextField fx:id="txtFieldUrl" layoutX="291.0" layoutY="53.0" onKeyPressed="#txtEnterKey" prefHeight="26.0" prefWidth="769.0" style="-fx-background-radius: 1000;" translateY="-15.0" AnchorPane.leftAnchor="291.0" AnchorPane.rightAnchor="423.0" />
-                        <Button fx:id="cronoHistory" layoutX="1206.0" layoutY="49.0" mnemonicParsing="false" onAction="#historyPages" prefHeight="32.0" prefWidth="32.0" style="-fx-background-radius: 1000;" translateY="-15.0">
-                           <graphic>
-                              <ImageView fitHeight="12.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@/images/history.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
                         <Button fx:id="searchPage" defaultButton="true" layoutX="1073.0" layoutY="52.0" mnemonicParsing="false" onAction="#searchPage" prefHeight="26.0" prefWidth="13.0" style="-fx-background-radius: 1000;" textOverrun="CLIP" translateX="-10.0" translateY="-15.0">
                            <graphic>
                               <ImageView fitHeight="11.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
@@ -124,7 +114,7 @@
             </HBox>
          </top>
          <center>
-            <WebView fx:id="webview" maxHeight="1080.0" maxWidth="1920.0" minHeight="400.0" minWidth="600.0" prefHeight="715.0" prefWidth="1483.0" AnchorPane.bottomAnchor="35.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="30.0" BorderPane.alignment="CENTER" />
+            <WebView fx:id="webview" maxHeight="1080.0" maxWidth="1920.0" minHeight="400.0" minWidth="600.0" prefHeight="760.0" prefWidth="1484.0" AnchorPane.bottomAnchor="35.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="30.0" BorderPane.alignment="CENTER" />
          </center>
       </BorderPane>
       <AnchorPane fx:id="slider" layoutX="941.0" layoutY="88.0" prefHeight="728.0" prefWidth="543.0" style="-fx-background-color: #2d7c86#2d7c86;">
@@ -133,8 +123,8 @@
                <children>
                   <StackPane prefHeight="259.0" prefWidth="527.0">
                      <children>
-                        <Button fx:id="scrapingButton" mnemonicParsing="false" onAction="#scrapePage" style="-fx-background-radius: 100; -fx-background-color: #dbac00#dbac00 #dbac00#dbac00 #dbac00#dbac00 #dbac00#dbac00;" text="Scraping Page" textAlignment="CENTER" translateX="-100.0" />
-                        <Button fx:id="detectionButton" layoutX="322.0" layoutY="43.0" mnemonicParsing="false" onAction="#detectionFakeNews" style="-fx-background-radius: 100; -fx-background-color: #dbac00#dbac00 #dbac00#dbac00 #dbac00#dbac00 #dbac00#dbac00;" text="News Detection" textAlignment="CENTER" translateX="100.0" />
+                        <Button id="scrapingButton" fx:id="scrapingButton" mnemonicParsing="false" onAction="#scrapePage" style="-fx-background-radius: 100; -fx-background-color: #dbac00;" stylesheets="@/stylesheet/button_style.css" text="Scraping Page" textAlignment="CENTER" translateX="-100.0" />
+                        <Button id="detectionButton" fx:id="detectionButton" layoutX="322.0" layoutY="43.0" mnemonicParsing="false" onAction="#detectionFakeNews" style="-fx-background-radius: 100; -fx-background-color: #dbac00;" stylesheets="@/stylesheet/button_style.css" text="News Detection" textAlignment="CENTER" translateX="100.0" />
                      </children>
                   </StackPane>
                   <TableView fx:id="tableView" editable="true" prefHeight="366.0" prefWidth="523.0">
@@ -156,7 +146,7 @@
                   </LineChart>
                   <StackPane prefHeight="237.0" prefWidth="523.0">
                      <children>
-                        <Button fx:id="viewSummaryutton" mnemonicParsing="false" onAction="#viewSummary" style="-fx-background-color: #dbac00; -fx-background-radius: 100;" text="View summary" textAlignment="CENTER" />
+                        <Button id="viewSummaryButton" fx:id="viewSummaryButton" mnemonicParsing="false" onAction="#viewSummary" style="-fx-background-radius: 100; -fx-background-color: #dbac00;" stylesheets="@/stylesheet/button_style.css" text="View summary" textAlignment="CENTER" />
                      </children>
                   </StackPane>
                   <TabPane prefHeight="338.0" prefWidth="223.0" tabClosingPolicy="UNAVAILABLE">
@@ -172,7 +162,7 @@
                                     </ImageView>
                                     <Text id="description" fx:id="textDescriptionMAGInOtherInformation" layoutX="89.0" layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MAG News Verification is a web browser that helps users recognize real news from fake news from most news websites, through a percentage of truthfulness, shown in various representations to the right of the browser view. In addition, the web browser offers the ability to scrap the web page the user is viewing and filter the selectors that make it up." wrappingWidth="421.15576171875" />
                                     <Text id="descriptionContactUs" fx:id="textContactUsInOtherInformation" layoutX="89.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="If you have any questions, please contact us." wrappingWidth="248.662109375" />
-                                    <ImageView fx:id="messageIcon" fitHeight="59.0" fitWidth="65.0" layoutX="357.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="messageIcon" fitHeight="59.0" fitWidth="65.0" layoutX="357.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@images/messaggio.png" />
                                        </image>
