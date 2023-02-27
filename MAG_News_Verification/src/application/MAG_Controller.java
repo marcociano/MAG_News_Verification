@@ -74,7 +74,6 @@ public class MAG_Controller implements Initializable{
     private AnchorPane slider;
     @FXML
     private MenuButton cronoHistory;
-    
     private WebEngine engine;
     private static final AtomicInteger count = new AtomicInteger(0);
     public static final String DEST = "./reportSummary.pdf";
