@@ -19,6 +19,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
+import tray.animations.AnimationType;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 
 public class Scraping_Controller implements Initializable {
@@ -95,7 +98,13 @@ public class Scraping_Controller implements Initializable {
         	  writer.write(e.text());
            }
             writer.close();
-           
+            String title= "docJsoup.html ready to be analyzed";
+        	TrayNotification tray = new TrayNotification();
+        	AnimationType type= AnimationType.POPUP;
+        	tray.setAnimationType(type);
+        	tray.setTitle(title);
+        	tray.setNotificationType(NotificationType.SUCCESS);
+        	tray.showAndDismiss(Duration.seconds(5));
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -150,7 +150,7 @@ public class MAG_Controller implements Initializable{
     	x.setUpperBound(20);
     	y.setUpperBound(1);
     	dataSeries = new XYChart.Series<>();
-    	dataSeries.setName("Andamento"); // Imposta il nome della serie
+    	dataSeries.setName("Trustworthiness's trend"); // Setting of lable's name
     	
     }
 

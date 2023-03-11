@@ -136,7 +136,7 @@
                     </columns>
                   </TableView>
                   <StackPane prefHeight="215.0" prefWidth="544.0" />
-                  <LineChart fx:id="lineChart" prefHeight="406.0" prefWidth="523.0" style="-fx-background-color: white;" title="News trend">
+                  <LineChart fx:id="lineChart" prefHeight="406.0" prefWidth="523.0" style="-fx-background-color: white;" title="Trustworthiness of your surfing">
                     <xAxis>
                       <NumberAxis side="BOTTOM" fx:id="x" />
                     </xAxis>
