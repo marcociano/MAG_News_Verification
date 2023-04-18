@@ -28,14 +28,14 @@
          <top>
             <HBox prefHeight="90.0" prefWidth="1484.0">
                <children>
-                  <AnchorPane maxHeight="1080.0" maxWidth="1920.0" minHeight="0.0" minWidth="600.0" prefHeight="83.0" prefWidth="1484.0" style="-fx-background-color: #2d7c86#2d7c86;">
+                  <AnchorPane fx:id="navBar" maxHeight="1080.0" maxWidth="1920.0" minHeight="0.0" minWidth="600.0" prefHeight="83.0" prefWidth="1484.0" style="-fx-background-color: #2d7c86;">
                      <children>
                         <ImageView fitHeight="88.0" fitWidth="101.0" layoutX="1.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@/images/MAG_News_Verification_logo.png" />
                            </image>
                         </ImageView>
-                        <Button layoutX="127.0" layoutY="50.0" mnemonicParsing="false" onAction="#back" prefHeight="29.0" prefWidth="9.0" style="-fx-background-radius: 100; -fx-background-color: #dbac00#dbac00;" translateY="-15.0">
+                        <Button fx:id="backB" layoutX="127.0" layoutY="50.0" mnemonicParsing="false" onAction="#back" prefHeight="29.0" prefWidth="9.0" style="-fx-background-radius: 100; -fx-background-color: #dbac00;" translateY="-15.0">
                            <graphic>
                               <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -43,7 +43,7 @@
                                  </image>
                               </ImageView>
                            </graphic></Button>
-                        <Button layoutX="165.0" layoutY="50.0" mnemonicParsing="false" onAction="#reload" prefHeight="29.0" prefWidth="26.0" style="-fx-background-radius: 100; -fx-background-color: #dbac00#dbac00 #dbac00#dbac00;" translateY="-15.0">
+                        <Button fx:id="reloadB" layoutX="165.0" layoutY="50.0" mnemonicParsing="false" onAction="#reload" prefHeight="29.0" prefWidth="26.0" style="-fx-background-radius: 100; -fx-background-color: #dbac00;" translateY="-15.0">
                            <graphic>
                               <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -51,7 +51,7 @@
                                  </image>
                               </ImageView>
                            </graphic></Button>
-                        <Button layoutX="254.0" layoutY="49.0" mnemonicParsing="false" onAction="#homepage" prefHeight="34.0" prefWidth="34.0" style="-fx-background-color: #dbac00#dbac00 #dbac00#dbac00; -fx-background-radius: 100;" text="" translateY="-15.0">
+                        <Button fx:id="homeB" layoutX="254.0" layoutY="49.0" mnemonicParsing="false" onAction="#homepage" prefHeight="34.0" prefWidth="34.0" style="-fx-background-color: #dbac00; -fx-background-radius: 100;" text="" translateY="-15.0">
                            <graphic>
                               <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -60,7 +60,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button layoutX="202.0" layoutY="50.0" mnemonicParsing="false" onAction="#forward" prefHeight="29.0" prefWidth="20.0" style="-fx-background-radius: 100; -fx-background-color: #dbac00#dbac00 #dbac00#dbac00;" translateY="-15.0">
+                        <Button fx:id="forwardB" layoutX="202.0" layoutY="50.0" mnemonicParsing="false" onAction="#forward" prefHeight="29.0" prefWidth="20.0" style="-fx-background-radius: 100; -fx-background-color: #dbac00;" translateY="-15.0">
                            <graphic>
                               <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -69,7 +69,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button layoutX="1118.0" layoutY="51.0" mnemonicParsing="false" onAction="#zoomOut" prefHeight="28.0" prefWidth="23.0" style="-fx-background-radius: 100; -fx-background-color: #dbac00#dbac00 #dbac00#dbac00;" translateY="-15.0">
+                        <Button fx:id="minusB" layoutX="1118.0" layoutY="51.0" mnemonicParsing="false" onAction="#zoomOut" prefHeight="28.0" prefWidth="23.0" style="-fx-background-radius: 100; -fx-background-color: #dbac00;" translateY="-15.0">
                            <graphic>
                               <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -89,7 +89,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button layoutX="1152.0" layoutY="51.0" mnemonicParsing="false" onAction="#zoomIn" prefHeight="28.0" prefWidth="27.0" style="-fx-background-radius: 100; -fx-background-color: #dbac00#dbac00 #dbac00#dbac00;" translateY="-15.0">
+                        <Button fx:id="plusB" layoutX="1152.0" layoutY="51.0" mnemonicParsing="false" onAction="#zoomIn" prefHeight="28.0" prefWidth="27.0" style="-fx-background-radius: 100; -fx-background-color: #dbac00;" translateY="-15.0">
                            <graphic>
                               <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -117,7 +117,7 @@
             <WebView fx:id="webview" maxHeight="1080.0" maxWidth="1920.0" minHeight="400.0" minWidth="600.0" prefHeight="760.0" prefWidth="1484.0" AnchorPane.bottomAnchor="35.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="30.0" BorderPane.alignment="CENTER" />
          </center>
       </BorderPane>
-      <AnchorPane fx:id="slider" layoutX="941.0" layoutY="88.0" prefHeight="728.0" prefWidth="543.0" style="-fx-background-color: #2d7c86#2d7c86;">
+      <AnchorPane fx:id="slider" layoutX="941.0" layoutY="88.0" prefHeight="728.0" prefWidth="543.0" style="-fx-background-color: #2d7c86;">
          <children>
             <VBox layoutX="11.0" prefHeight="705.0" prefWidth="523.0">
                <children>

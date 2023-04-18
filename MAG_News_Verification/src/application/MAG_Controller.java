@@ -24,7 +24,6 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
-import javafx.scene.control.MenuButton;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -72,8 +71,6 @@ public class MAG_Controller implements Initializable{
     private ImageView menuBack;
     @FXML
     private AnchorPane slider;
-    @FXML
-    private MenuButton cronoHistory;
     private WebEngine engine;
     private static final AtomicInteger count = new AtomicInteger(0);
     public static final String DEST = "./reportSummary.pdf";
@@ -93,6 +90,7 @@ public class MAG_Controller implements Initializable{
     @FXML
     private NumberAxis y;
   
+
     /**
       Initializes the controller class.
      */

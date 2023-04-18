@@ -12,6 +12,7 @@ import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
+import com.itextpdf.text.FontFactory;
 import com.itextpdf.text.Image;
 import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
@@ -154,26 +155,26 @@ public class Summary_Controller {
 
         document.add(header);
         
-        Image logo = Image.getInstance(LOGOMAG);// Creazione dell'oggetto Image con l'immagine da inserire
+        Image logo = Image.getInstance(LOGOMAG);
         logo.setAlignment(ALIGN_CENTER);
-        logo.scaleToFit(200, 200); // Impostazione delle dimensioni dell'immagine
+        logo.scaleToFit(200, 200); 
         document.add(logo);
         
         document.add(Chunk.NEWLINE);
   
-        PdfPTable table = new PdfPTable(4); // Creazione della tabella con 3 colonne
-        table.setWidthPercentage(100); // Impostazione della larghezza della tabella al 100% della pagina
+        PdfPTable table = new PdfPTable(4); 
+        table.setWidthPercentage(100);
 
-        PdfPCell header1 = new PdfPCell(new Phrase("#")); // Creazione della cella dell'intestazione della colonna 1
+        PdfPCell header1 = new PdfPCell(new Phrase("#", FontFactory.getFont(FontFactory.HELVETICA, 11, Font.BOLD))); 
         table.addCell(header1).setHorizontalAlignment(ALIGN_CENTER);
 
-        PdfPCell header2 = new PdfPCell(new Phrase("Url Text"));; // Creazione della cella dell'intestazione della colonna 2
+        PdfPCell header2 = new PdfPCell(new Phrase("Url Text", FontFactory.getFont(FontFactory.HELVETICA, 11, Font.BOLD))); 
         table.addCell(header2).setHorizontalAlignment(ALIGN_CENTER);
 
-        PdfPCell header3 = new PdfPCell(new Phrase("Trustworthiness")); // Creazione della cella dell'intestazione della colonna 3
+        PdfPCell header3 = new PdfPCell(new Phrase("Trustworthiness", FontFactory.getFont(FontFactory.HELVETICA, 11, Font.BOLD))); 
         table.addCell(header3).setHorizontalAlignment(ALIGN_CENTER);
         
-        PdfPCell header4 = new PdfPCell(new Phrase("Accuracy %")); // Creazione della cella dell'intestazione della colonna 3
+        PdfPCell header4 = new PdfPCell(new Phrase("Accuracy %", FontFactory.getFont(FontFactory.HELVETICA, 11, Font.BOLD))); 
         table.addCell(header4).setHorizontalAlignment(ALIGN_CENTER);
         
         ObservableList<News> data = tableView.getItems();
@@ -202,27 +203,6 @@ public class Summary_Controller {
                 document.bottom(),
                 0);
        
-  
-        /*
-        document.add( Chunk.NEWLINE );
-        
-        Font font3 = new Font(FontFamily.TIMES_ROMAN, 20.0f, Font.BOLD, BaseColor.BLACK);        
-        Chunk c3 = new Chunk("The percentage found is: " + accuracy, font3);
-        
-        
-        Paragraph para3 = new Paragraph(c3);   
-        para3.setAlignment(ALIGN_CENTER);  
-        document.add(para3);
-        
-        document.add( Chunk.NEWLINE );
-        document.add( Chunk.NEWLINE );
-        document.add( Chunk.NEWLINE );
-		*/
-        /*Management of the fourth paragraph*/
-        /*
-        
-       
-        */
          document.close();
          writer.close();
         /*Once the pdf is saved you will see the message that it was saved*/

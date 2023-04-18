@@ -62,3 +62,81 @@
   -fx-scale-x: 0.90;
   -fx-scale-y: 0.90;
 }
+
+#backB:hover {
+  -fx-background-color: #dbac00; 
+  -fx-text-fill: #ffffff;
+
+}
+
+#backB:pressed {
+  -fx-background-color: #8a6c01; 
+  -fx-text-fill: #ffffff;
+  -fx-scale-x: 0.90;
+  -fx-scale-y: 0.90;
+}
+
+#reloadB:hover {
+  -fx-background-color: #dbac00; 
+  -fx-text-fill: #ffffff;
+
+}
+
+#reloadB:pressed {
+  -fx-background-color: #8a6c01; 
+  -fx-text-fill: #ffffff;
+  -fx-scale-x: 0.90;
+  -fx-scale-y: 0.90;
+}
+
+#forwardB:hover {
+  -fx-background-color: #dbac00; 
+  -fx-text-fill: #ffffff;
+
+}
+
+#forwardB:pressed {
+  -fx-background-color: #8a6c01; 
+  -fx-text-fill: #ffffff;
+  -fx-scale-x: 0.90;
+  -fx-scale-y: 0.90;
+}
+
+#homeB:hover {
+  -fx-background-color: #dbac00; 
+  -fx-text-fill: #ffffff;
+
+}
+
+#homeB:pressed {
+  -fx-background-color: #8a6c01; 
+  -fx-text-fill: #ffffff;
+  -fx-scale-x: 0.90;
+  -fx-scale-y: 0.90;
+}
+
+#minusB:hover {
+  -fx-background-color: #dbac00; 
+  -fx-text-fill: #ffffff;
+
+}
+
+#minusB:pressed {
+  -fx-background-color: #8a6c01; 
+  -fx-text-fill: #ffffff;
+  -fx-scale-x: 0.90;
+  -fx-scale-y: 0.90;
+}
+
+#plusB:hover {
+  -fx-background-color: #dbac00; 
+  -fx-text-fill: #ffffff;
+
+}
+
+#plusB:pressed {
+  -fx-background-color: #8a6c01; 
+  -fx-text-fill: #ffffff;
+  -fx-scale-x: 0.90;
+  -fx-scale-y: 0.90;
+}
