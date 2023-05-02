@@ -42,4 +42,3 @@ The following instructions explains how to install the system:
  * **Angela De Martino** - *MAG News Verification* - [AngelaDeM](https://github.com/AngelaDeM)
  * **Giuseppe D'Avino** - *MAG News Verification* - [TherealBarnar](https://github.com/TherealBarnar)
  
- ### IN DEVELOPING MODE
