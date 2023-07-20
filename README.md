@@ -11,6 +11,9 @@ We 've also integretd within the prediction.py file a Flask server for data exch
 <p>You are not allowed to use our browser for legitimate, illegal or unauthorized purposes, including, but not limited to, violating any intellectual property or privacy laws. </p>
 <br>
 
+<h3>MAG News Verification Architecture</h3>
+<img src="MAG_Architecture.jpg" width="650" height="600"/>
+
 <h3>How to use MAG browser properly:</h3>
 <p> 1. Enter in the address bar the URL of the page you want to view. <br>
 2. Press enter to search or click on the search button.<br>
